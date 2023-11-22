@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FMS.Models
 {
-    public class ForkliftData : BaseModel
+    public class ForkliftReadData : BaseModel
     {
         #region Variables
         private string? _lastDataUpdate;
@@ -25,7 +25,7 @@ namespace FMS.Models
 
         #endregion
         #region Constructors
-        public ForkliftData() { }
+        public ForkliftReadData() { }
         #endregion
     }
 }
