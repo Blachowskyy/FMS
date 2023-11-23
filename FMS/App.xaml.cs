@@ -47,7 +47,7 @@ namespace FMS
             await _host.StartAsync();
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.DataContext = _host.Services.GetRequiredService<MainWindowViewModel>();
-            if(!MainWindow.IsLoaded)
+            if (!MainWindow.IsLoaded)
             {
                 MainWindow.Show();
             }
