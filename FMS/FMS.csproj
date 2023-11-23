@@ -281,22 +281,7 @@
     <PackageReference Include="CefSharp.Common.NETCore" Version="119.4.30" />
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="119.4.30" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
-    <PackageReference Include="MahApps.Extra" Version="2.4.2106.43" />
-    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
-    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.BoxIcons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Entypo" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.FeatherIcons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Ionicons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.MaterialDesign" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.MaterialLight" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Modern" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Octicons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.SimpleIcons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Typicons" Version="4.11.0" />
-    <PackageReference Include="MahApps.Metro.IconPacks.Unicons" Version="4.11.0" />
+    <PackageReference Include="gong-wpf-dragdrop" Version="3.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.0" />
@@ -333,6 +318,8 @@
     <PackageReference Include="Serilog.Sinks.Seq" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.Trace" Version="3.0.0" />
     <PackageReference Include="ServiceStack" Version="8.0.0" />
+    <PackageReference Include="WPF-UI" Version="2.1.0" />
+    <PackageReference Include="WPF-UI-Enhanced" Version="10.0.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
