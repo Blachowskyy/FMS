@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FMS.Models.Services.Interfaces
+namespace FMS.Services.Common.Interfaces
 {
     public interface ITcpServerConnection
     {

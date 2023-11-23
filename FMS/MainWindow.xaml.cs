@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using FMS.ViewModels.Main;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,11 @@ namespace FMS
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
+            WindowState = WindowState.Maximized;
+            DataContext = viewModel;
         }
     }
 }
