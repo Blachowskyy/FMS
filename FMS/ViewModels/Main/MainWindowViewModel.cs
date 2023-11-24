@@ -1,25 +1,28 @@
-﻿using FMS.Models.Main;
+﻿using FleetManagementSystem.ViewModels.Common;
+using FMS.Models.Main;
+using FMS.Services.Common;
 using FMS.Services.Common.Interfaces;
 using FMS.ViewModels.Common;
+using FMS.Views.Main;
+using Serilog;
+using ServiceStack;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using Wpf.Ui.Input;
 
 namespace FMS.ViewModels.Main
 {
-    public class MainWindowViewModel(IDataService<User> userDataService,
-        IDataService<JobStepType> jobStepTypeDataService,
-        IDataService<JobStep> jobStepDataService,
-        IDataService<Job> jobDataService,
-        IDataService<Location> locationDataService,
-        IDataService<Forklift> forkliftDataService) : BaseViewModel
+    public class MainWindowViewModel : BaseViewModel
     {
         #region Variables
         #region Logic
-        private Page? _currentPage;
+        private Page _currentPage;
         public Page CurrentPage
         {
             get
             {
-                _currentPage ??= new Page();
                 return _currentPage;
             }
             set
@@ -41,18 +44,112 @@ namespace FMS.ViewModels.Main
                 OnPropertyChanged(nameof(ShowSideMenu));
             }
         }
+        private bool _openShutdownDialogBox;
+        public bool OpenShutdownDialogBox
+        {
+            get
+            {
+                return _openShutdownDialogBox;
+            }
+            set
+            {
+                _openShutdownDialogBox = value;
+                OnPropertyChanged(nameof(OpenShutdownDialogBox));
+            }
+        }
+        private User? _currentUser;
+        public User CurrentUser
+        {
+            get
+            {
+                return _currentUser ??= new User();
+            }
+            set
+            {
+                _currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
+            }
+        }
+        private string? _loginPageIcon;
+        public string LoginPageIcon
+        {
+            get
+            {
+                return _loginPageIcon ??= "Models/Resources/Icons/LoginPageWhite.png";
+            }
+            set
+            {
+                _loginPageIcon = value;
+                OnPropertyChanged(nameof(LoginPageIcon));
+            }
+        }
         #endregion
         #region Privates
-        private readonly IDataService<User> _userDataService = userDataService;
-        private readonly IDataService<JobStepType> _jobStepTypeDataService = jobStepTypeDataService;
-        private readonly IDataService<JobStep> _jobStepDataService = jobStepDataService;
-        private readonly IDataService<Job> _jobDataService = jobDataService;
-        private readonly IDataService<Location> _locationDataService = locationDataService;
-        private readonly IDataService<Forklift> _forkliftDataService = forkliftDataService;
-
+        private readonly IDataService<User> _userDataService;
+        private readonly IDataService<JobStepType> _jobStepTypeDataService;
+        private readonly IDataService<JobStep> _jobStepDataService;
+        private readonly IDataService<Job> _jobDataService;
+        private readonly IDataService<Location> _locationDataService;
+        private readonly IDataService<Forklift> _forkliftDataService;
+        private bool _isDragging = false;
+        private Point _offset;
+        private UserStore _userStore;
+        private bool isMenuVisible;
+        public bool ShowMenu {  get; set; }
         #endregion
         #endregion
         #region Constructors
+        public MainWindowViewModel(IDataService<User> userDataService,
+        IDataService<JobStepType> jobStepTypeDataService,
+        IDataService<JobStep> jobStepDataService,
+        IDataService<Job> jobDataService,
+        IDataService<Location> locationDataService,
+        IDataService<Forklift> forkliftDataService,
+        UserStore userStore)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("Logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            _userDataService = userDataService;
+            _jobStepTypeDataService = jobStepTypeDataService;
+            _jobStepDataService = jobStepDataService;
+            _jobDataService = jobDataService;
+            _locationDataService = locationDataService;
+            _forkliftDataService = forkliftDataService;
+            _userStore = userStore;
+            _userStore.StateChanged += OnUserChanged;
+            ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
+            LoginPageButtonClick = new RelayCommand(ExecuteLoginPageButtonClick);
+
+        }
+        #endregion
+        #region ProgramLogic
+        private void OnUserChanged()
+        {
+            if (_userStore.CurrentUser != null)
+            {
+                CurrentUser = _userStore.CurrentUser;
+                LoginPageIcon = "Models/Resources/Icons/LogoutPageWhite.png";
+            }
+        }
+        #endregion
+        #region Buttons logic
+        private void ExecuteShutdownAppButtonClick(object? param)
+        {
+            Application.Current.Shutdown();
+        }
+        private void ExecuteLoginPageButtonClick(object? param)
+        {
+            Log.Information("Clicked login page button...");
+            CurrentPage = new LoginPage(new LoginPageViewModel());
+            Log.Information(_currentPage.ToString());
+        }
+        #endregion
+        #region ICommand declarations
+        public ICommand? ShutdownAppButtonClick { get; private set; }
+        public ICommand? LoginPageButtonClick { get; private set; }
         #endregion
     }
 }

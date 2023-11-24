@@ -1,4 +1,5 @@
 ﻿using FMS.ViewModels.Main;
+using FMS.Views.Main;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -17,6 +18,8 @@ namespace FMS.Services.HostBuilders
             {
                 services.AddSingleton<MainWindow>(s =>
                 new MainWindow(s.GetRequiredService<MainWindowViewModel>()));
+                services.AddSingleton<LoginPage>(s =>
+                new LoginPage(s.GetRequiredService<LoginPageViewModel>()));
             });
             return hostBuilder;
         }

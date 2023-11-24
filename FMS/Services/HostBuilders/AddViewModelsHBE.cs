@@ -16,6 +16,7 @@ namespace FMS.Services.HostBuilders
             hostBuilder.ConfigureServices(services =>
             {
                 services.AddTransient<MainWindowViewModel>();
+                services.AddTransient<LoginPageViewModel>();
             });
             return hostBuilder;
         }

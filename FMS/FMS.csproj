@@ -12,67 +12,9 @@
   <ItemGroup>
     <None Remove="Models\ApplicationData\AppData.db" />
     <None Remove="Models\AppSettings\appsettings.json" />
-    <None Remove="Models\Resources\Icons\WhiteAdd.png" />
-    <None Remove="Models\Resources\Icons\WhiteAddPalletTruck.png" />
-    <None Remove="Models\Resources\Icons\WhiteAddUser.png" />
-    <None Remove="Models\Resources\Icons\WhiteArrow1.png" />
-    <None Remove="Models\Resources\Icons\WhiteArrow2.png" />
-    <None Remove="Models\Resources\Icons\WhiteAutomaticWork.png" />
-    <None Remove="Models\Resources\Icons\WhiteAxisX.png" />
-    <None Remove="Models\Resources\Icons\WhiteAxisY.png" />
-    <None Remove="Models\Resources\Icons\WhiteBattery.png" />
-    <None Remove="Models\Resources\Icons\WhiteCharging.png" />
-    <None Remove="Models\Resources\Icons\WhiteCheckConnection.png" />
-    <None Remove="Models\Resources\Icons\WhiteCloseApp.png" />
-    <None Remove="Models\Resources\Icons\WhiteCommandList.png" />
-    <None Remove="Models\Resources\Icons\WhiteCreateTaskPage.png" />
-    <None Remove="Models\Resources\Icons\WhiteCustomTaskPage.png" />
-    <None Remove="Models\Resources\Icons\WhiteDatatbaseLoad.png" />
-    <None Remove="Models\Resources\Icons\WhiteDatatbaseSave.png" />
-    <None Remove="Models\Resources\Icons\WhiteDelete.png" />
-    <None Remove="Models\Resources\Icons\WhiteDiagnosticMode.png" />
-    <None Remove="Models\Resources\Icons\WhiteEdit.png" />
-    <None Remove="Models\Resources\Icons\WhiteEditTaskPage.png" />
-    <None Remove="Models\Resources\Icons\WhiteForkliftCargoWeight.png" />
-    <None Remove="Models\Resources\Icons\WhiteForkliftDownload.png" />
-    <None Remove="Models\Resources\Icons\WhiteForkliftUpload.png" />
-    <None Remove="Models\Resources\Icons\WhiteForkliftWork.png" />
-    <None Remove="Models\Resources\Icons\WhiteForksHeight.png" />
-    <None Remove="Models\Resources\Icons\WhiteGetLocation.png" />
-    <None Remove="Models\Resources\Icons\WhiteHeight.png" />
-    <None Remove="Models\Resources\Icons\WhiteInitializing.png" />
-    <None Remove="Models\Resources\Icons\WhiteJobCreator.png" />
-    <None Remove="Models\Resources\Icons\WhiteLiveMonitoring.png" />
-    <None Remove="Models\Resources\Icons\WhiteLoad.png" />
-    <None Remove="Models\Resources\Icons\WhiteLocationsPage.png" />
-    <None Remove="Models\Resources\Icons\WhiteLoginMain.png" />
-    <None Remove="Models\Resources\Icons\WhiteLowBattery.png" />
-    <None Remove="Models\Resources\Icons\WhiteManualMode.png" />
-    <None Remove="Models\Resources\Icons\WhiteManualTaskSending.png" />
-    <None Remove="Models\Resources\Icons\WhiteMapLocalization.png" />
-    <None Remove="Models\Resources\Icons\WhiteMenuArrowDown.png" />
-    <None Remove="Models\Resources\Icons\WhiteNavRide.png" />
-    <None Remove="Models\Resources\Icons\WhitePalletTruck.png" />
-    <None Remove="Models\Resources\Icons\WhitePalletUnload.png" />
-    <None Remove="Models\Resources\Icons\WhitePause.png" />
-    <None Remove="Models\Resources\Icons\WhitePlay.png" />
-    <None Remove="Models\Resources\Icons\WhitePWM.png" />
-    <None Remove="Models\Resources\Icons\WhiteRefreshDate.png" />
-    <None Remove="Models\Resources\Icons\WhiteRotation.png" />
-    <None Remove="Models\Resources\Icons\WhiteSpeed.png" />
-    <None Remove="Models\Resources\Icons\WhiteStandby.png" />
-    <None Remove="Models\Resources\Icons\WhiteSteering.png" />
-    <None Remove="Models\Resources\Icons\WhiteStop.png" />
-    <None Remove="Models\Resources\Icons\WhiteTaskArchivePage.png" />
-    <None Remove="Models\Resources\Icons\WhiteTaskList.png" />
-    <None Remove="Models\Resources\Icons\WhiteTEBParameters.png" />
-    <None Remove="Models\Resources\Icons\WhiteTilt.png" />
-    <None Remove="Models\Resources\Icons\WhiteUserLogin.png" />
-    <None Remove="Models\Resources\Icons\WhiteUserLogout.png" />
-    <None Remove="Models\Resources\Icons\WhiteWaitingForChoice.png" />
-    <None Remove="Models\Resources\Icons\WhiteWeight.png" />
-    <None Remove="Models\Resources\Icons\WhiteWorkSafety.png" />
-    <None Remove="Models\Resources\Icons\WhiteWorkState.png" />
+    <None Remove="Models\Resources\Icons\CloseAppWhite.png" />
+    <None Remove="Models\Resources\Icons\LoginPageWhite.png" />
+    <None Remove="Models\Resources\Icons\MenuIconWhite.png" />
     <None Remove="Models\Resources\Images\backgroundimg1.png" />
     <None Remove="Models\Resources\Images\Logo.png" />
   </ItemGroup>
@@ -84,187 +26,13 @@
     <Content Include="Models\AppSettings\appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Models\Resources\Icons\WhiteAdd.png">
+    <Content Include="Models\Resources\Icons\CloseAppWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Models\Resources\Icons\WhiteAddPalletTruck.png">
+    <Content Include="Models\Resources\Icons\LoginPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Models\Resources\Icons\WhiteAddUser.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteArrow1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteArrow2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteAutomaticWork.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteAxisX.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteAxisY.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteBattery.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCharging.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCheckConnection.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCloseApp.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCommandList.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCreateTaskPage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteCustomTaskPage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteDatatbaseLoad.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteDatatbaseSave.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteDelete.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteDiagnosticMode.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteEdit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteEditTaskPage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteForkliftCargoWeight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteForkliftDownload.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteForkliftUpload.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteForkliftWork.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteForksHeight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteGetLocation.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteHeight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteInitializing.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteJobCreator.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteLiveMonitoring.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteLoad.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteLocationsPage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteLoginMain.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteLowBattery.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteManualMode.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteManualTaskSending.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteMapLocalization.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteMenuArrowDown.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteNavRide.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhitePalletTruck.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhitePalletUnload.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhitePause.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhitePlay.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhitePWM.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteRefreshDate.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteRotation.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteSpeed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteStandby.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteSteering.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteStop.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteTaskArchivePage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteTaskList.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteTEBParameters.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteTilt.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteUserLogin.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteUserLogout.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteWaitingForChoice.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteWeight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteWorkSafety.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Resources\Icons\WhiteWorkState.png">
+    <Content Include="Models\Resources\Icons\MenuIconWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\Resources\Images\backgroundimg1.png">
@@ -282,6 +50,11 @@
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="119.4.30" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
     <PackageReference Include="gong-wpf-dragdrop" Version="3.2.1" />
+    <PackageReference Include="jQuery" Version="3.7.1" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MaterialDesignThemes.Wpf" Version="1.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.0" />
@@ -319,7 +92,6 @@
     <PackageReference Include="Serilog.Sinks.Trace" Version="3.0.0" />
     <PackageReference Include="ServiceStack" Version="8.0.0" />
     <PackageReference Include="WPF-UI" Version="2.1.0" />
-    <PackageReference Include="WPF-UI-Enhanced" Version="10.0.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 

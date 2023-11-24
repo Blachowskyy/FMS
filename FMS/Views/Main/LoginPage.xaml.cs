@@ -1,7 +1,9 @@
 ﻿using FMS.ViewModels.Main;
-using Microsoft.VisualBasic.Logging;
-using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,25 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FMS
+namespace FMS.Views.Main
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logika interakcji dla klasy LoginPage.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class LoginPage : Page
     {
-        public MainWindow(MainWindowViewModel viewModel)
+        public LoginPage(LoginPageViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
-            WindowState = WindowState.Maximized;
-            Console.WriteLine(DataContext);
-            
-        }
-
-        private void NavigationFluent_Expanded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

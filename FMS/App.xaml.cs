@@ -47,7 +47,8 @@ namespace FMS
             await _host.StartAsync();
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.DataContext = _host.Services.GetRequiredService<MainWindowViewModel>();
-            if (!MainWindow.IsLoaded)
+/*            Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
+*/            if (!MainWindow.IsLoaded)
             {
                 MainWindow.Show();
             }
