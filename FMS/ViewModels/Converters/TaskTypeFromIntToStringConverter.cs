@@ -15,9 +15,9 @@ namespace FleetManagementSystem.ViewModels.Converters
         {
             string returnedString = "";
             int givenValue = (int)value;
-            if (givenValue == null)
+            if (givenValue == 0)
             {
-                returnedString = null;
+                returnedString = string.Empty;
             }
             if (givenValue == 1)
             {

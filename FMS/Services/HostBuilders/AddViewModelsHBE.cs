@@ -17,6 +17,7 @@ namespace FMS.Services.HostBuilders
             {
                 services.AddTransient<MainWindowViewModel>();
                 services.AddTransient<LoginPageViewModel>();
+                services.AddTransient<ForkliftManagementPageViewModel>();
             });
             return hostBuilder;
         }

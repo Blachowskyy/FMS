@@ -17,8 +17,8 @@ namespace FMS
     public partial class App : Application
     {
         private readonly IHost _host;
-        private readonly IDataService<Forklift>? _ForkliftDataService;
-        private IEnumerable<Forklift>? _forkliftsList;
+       /* private readonly IDataService<Forklift>? _ForkliftDataService;*/
+        /*private IEnumerable<Forklift>? _forkliftsList;*/
         public App()
         {
             Console.WriteLine("Console started...");

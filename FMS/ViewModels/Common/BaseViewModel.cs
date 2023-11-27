@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FMS.ViewModels.Common
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged, INotifyPropertyChanging
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public event PropertyChangingEventHandler? PropertyChanging;

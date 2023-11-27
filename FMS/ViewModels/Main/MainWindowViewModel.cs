@@ -1,6 +1,7 @@
 ﻿using FleetManagementSystem.ViewModels.Common;
 using FMS.Models.Main;
 using FMS.Services.Common;
+using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
 using FMS.ViewModels.Common;
 using FMS.Views.Main;
@@ -17,13 +18,13 @@ namespace FMS.ViewModels.Main
     public class MainWindowViewModel : BaseViewModel
     {
         #region Variables
-        #region Logic
-        private Page _currentPage;
+        #region Page
+        private Page? _currentPage;
         public Page CurrentPage
         {
             get
             {
-                return _currentPage;
+                return _currentPage ??= new Page();
             }
             set
             {
@@ -83,29 +84,80 @@ namespace FMS.ViewModels.Main
                 OnPropertyChanged(nameof(LoginPageIcon));
             }
         }
+        private bool _clientMenuVisible;
+        public bool ClientMenuVisible
+        {
+            get
+            {
+                return _clientMenuVisible;
+            }
+            set
+            {
+                _clientMenuVisible = value;
+                OnPropertyChanged(nameof(ClientMenuVisible));
+            }
+        }
+        private bool _installatorMenuVisible;
+        public bool InstallatorMenuVisible
+        {
+            get
+            {
+                return _installatorMenuVisible;
+            }
+            set
+            {
+                _installatorMenuVisible = value;
+                OnPropertyChanged(nameof(InstallatorMenuVisible));
+            }
+        }
+        private bool _adminMenuVisible;
+        public bool AdminMenuVisible
+        {
+            get
+            {
+                return _adminMenuVisible;
+            }
+            set
+            {
+                _adminMenuVisible = value; 
+                OnPropertyChanged(nameof(AdminMenuVisible));
+            }
+        }
+        private List<Forklift>? _connectedForklifts;
+        public List<Forklift> ConnectedForklifts
+        {
+            get
+            {
+                return _connectedForklifts ??= new List<Forklift>();
+            }
+            set
+            {
+                _connectedForklifts = value;
+                OnPropertyChanged(nameof(ConnectedForklifts));
+            }
+        }
         #endregion
         #region Privates
-        private readonly IDataService<User> _userDataService;
+        private readonly UserDataService _userDataService;
         private readonly IDataService<JobStepType> _jobStepTypeDataService;
         private readonly IDataService<JobStep> _jobStepDataService;
         private readonly IDataService<Job> _jobDataService;
         private readonly IDataService<Location> _locationDataService;
-        private readonly IDataService<Forklift> _forkliftDataService;
-        private bool _isDragging = false;
-        private Point _offset;
+        private readonly ForklfitDataService _forkliftDataService;
         private UserStore _userStore;
         private bool isMenuVisible;
         public bool ShowMenu {  get; set; }
         #endregion
         #endregion
         #region Constructors
-        public MainWindowViewModel(IDataService<User> userDataService,
+        public MainWindowViewModel(UserDataService userDataService,
         IDataService<JobStepType> jobStepTypeDataService,
         IDataService<JobStep> jobStepDataService,
         IDataService<Job> jobDataService,
         IDataService<Location> locationDataService,
-        IDataService<Forklift> forkliftDataService,
+        ForklfitDataService forkliftDataService,
         UserStore userStore)
+
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -119,9 +171,11 @@ namespace FMS.ViewModels.Main
             _locationDataService = locationDataService;
             _forkliftDataService = forkliftDataService;
             _userStore = userStore;
+            SetMenuVisibility();
             _userStore.StateChanged += OnUserChanged;
             ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
             LoginPageButtonClick = new RelayCommand(ExecuteLoginPageButtonClick);
+            ForkliftManagementPageButtonClick = new RelayCommand(ExecuteForkliftManagementPageButtonClick);
 
         }
         #endregion
@@ -133,6 +187,34 @@ namespace FMS.ViewModels.Main
                 CurrentUser = _userStore.CurrentUser;
                 LoginPageIcon = "Models/Resources/Icons/LogoutPageWhite.png";
             }
+            SetMenuVisibility();
+        }
+        private void SetMenuVisibility()
+        {
+            if (_userStore.CurrentUser.Client)
+            {
+                ClientMenuVisible = true;
+                InstallatorMenuVisible = false;
+                AdminMenuVisible = false;
+            }
+            else if (_userStore.CurrentUser.Installator)
+            {
+                ClientMenuVisible = true;
+                InstallatorMenuVisible = true;
+                AdminMenuVisible = false;
+            }
+            else if (_userStore.CurrentUser.Admin)
+            {
+                ClientMenuVisible = true;
+                InstallatorMenuVisible = true;
+                AdminMenuVisible = true;
+            }
+            else
+            {
+                ClientMenuVisible = false;
+                InstallatorMenuVisible = false;
+                AdminMenuVisible = true;
+            }
         }
         #endregion
         #region Buttons logic
@@ -143,13 +225,19 @@ namespace FMS.ViewModels.Main
         private void ExecuteLoginPageButtonClick(object? param)
         {
             Log.Information("Clicked login page button...");
-            CurrentPage = new LoginPage(new LoginPageViewModel());
-            Log.Information(_currentPage.ToString());
+            CurrentPage = new LoginPage(new LoginPageViewModel(_userDataService, _userStore));
+            
+        }
+        private void ExecuteForkliftManagementPageButtonClick(object? param)
+        {
+            Log.Information("Clicked forklift management page button...");
+            CurrentPage = new ForkliftManagementPage(new ForkliftManagementPageViewModel(_forkliftDataService, _connectedForklifts));
         }
         #endregion
         #region ICommand declarations
         public ICommand? ShutdownAppButtonClick { get; private set; }
         public ICommand? LoginPageButtonClick { get; private set; }
+        public ICommand? ForkliftManagementPageButtonClick { get; private set; }
         #endregion
     }
 }
