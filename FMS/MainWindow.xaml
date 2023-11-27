@@ -7,17 +7,28 @@
     xmlns:local="clr-namespace:FMS"
     xmlns:local1="clr-namespace:FMS.ViewModels.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:mdcontrols="clr-namespace:MaterialDesignExtensions.Controllers;assembly=MaterialDesignExtension"
     xmlns:mdthemes="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    x:Name="Main"
     Width="1920"
     Height="1080"
+    AllowsTransparency="True"
+    WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="3" />
+    </WindowChrome.WindowChrome>
     <Window.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
+        <Style x:Key="MenuContainerStyle" TargetType="Border" />
     </Window.Resources>
-    <Border Background="Black" SnapsToDevicePixels="True">
+    <Border
+        Background="{StaticResource PrimaryBackgroundBrush}"
+        BorderBrush="{StaticResource WindowBorderBrush}"
+        BorderThickness="3"
+        CornerRadius="10"
+        SnapsToDevicePixels="True">
         <Grid>
             <!--#region Main Grid Layout-->
             <Grid.RowDefinitions>
@@ -27,49 +38,51 @@
             </Grid.RowDefinitions>
             <!--#endregion-->
             <!--#region Background image-->
-            <Border Grid.RowSpan="3" />
-
+            <Border Grid.RowSpan="3">
+                <Image Source="Models/Resources/Images/backgroundimg1.png" Stretch="None" />
+            </Border>
             <!--#endregion-->
             <!--#region Top area-->
             <Border
                 Height="50"
                 VerticalAlignment="Top"
+                Background="{StaticResource WindowBorderBrush}"
                 CornerRadius="10 10 0 0">
                 <Grid>
                     <!--#region Top panel definition-->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="1100" />
+                        <ColumnDefinition Width="300" />
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="50" />
-                        <ColumnDefinition Width="50" />
                     </Grid.ColumnDefinitions>
                     <!--#endregion-->
                     <!--#region Program title-->
                     <TextBlock
-                        Grid.Column="2"
-                        Margin="0,0,0,0"
+                        Grid.Column="1"
+                        Margin="350,0,0,0"
                         HorizontalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="ExtraBold"
-                        Foreground="White"
+                        Style="{StaticResource TitleStyle}"
                         Text="Fleet Management System" />
                     <!--#region LoggedUser-->
-                    <TextBlock
-                        Grid.Column="3"
-                        Width="auto"
-                        Margin="0,0,30,0"
-                        Text="Tu bedzie aktywny uzytkownik" />
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TitleStyle}" Text="Aktywny użytkownik:" />
+                        <Separator Width="20" />
+                        <TextBlock
+                            Margin="0,0,30,0"
+                            Style="{StaticResource TitleStyle}"
+                            Text="{Binding CurrentUser.Username}" />
+                    </StackPanel>
                     <!--#endregion-->
                     <!--#region Menu toggle button with animation-->
                     <ToggleButton
                         x:Name="ShowPagesMenuButton"
-                        Grid.Row="1"
-                        Width="40"
-                        Background="Black"
+                        Width="50"
                         IsChecked="{Binding ShowMenu, Mode=TwoWay}"
                         Style="{StaticResource MainMenuButtonStyle}">
+
                         <ToggleButton.Triggers>
                             <EventTrigger RoutedEvent="ToggleButton.Checked">
                                 <BeginStoryboard>
@@ -80,7 +93,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="MenuContainer"
                                             Storyboard.TargetProperty="Opacity"
-                                            From="1"
+                                            From="0"
                                             To="1"
                                             Duration="0:0:0.3">
                                             <DoubleAnimation.EasingFunction>
@@ -90,7 +103,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="80"
+                                            From="0"
                                             To="300"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
@@ -104,13 +117,13 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuContainer" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation
                                             Storyboard.TargetName="MenuContainer"
                                             Storyboard.TargetProperty="Opacity"
                                             From="1"
-                                            To="1"
+                                            To="0"
                                             Duration="0:0:1.3">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
@@ -120,7 +133,7 @@
                                             Storyboard.TargetName="MenuPanel"
                                             Storyboard.TargetProperty="Width"
                                             From="300"
-                                            To="80"
+                                            To="0"
                                             Duration="0:0:0.8">
                                             <DoubleAnimation.EasingFunction>
                                                 <SineEase EasingMode="EaseInOut" />
@@ -135,18 +148,18 @@
                     <!--#endregion-->
                     <Image
                         Grid.Column="1"
-                        Margin="10,0,0,0"
+                        Margin="0,0,0,0"
                         HorizontalAlignment="Left"
                         Source="Models/Resources/Images/Logo.png" />
                     <!--#region Buttons on top-->
-                    <StackPanel Grid.Column="5" VerticalAlignment="Top">
+                    <StackPanel Grid.Column="4" VerticalAlignment="Top">
                         <Button
                             x:Name="CloseAppButton"
                             Width="40"
                             Height="40"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            Command="{Binding ShutdownAppButtonClick}">
+                            Command="{Binding Path=ShutdownAppButtonClick}">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <!--  Ustal podstawowe tło przycisku (opcjonalnie)  -->
@@ -234,10 +247,49 @@
                         <Separator Height="0.4" Margin="0,-5,0,0" />
                         <!--  Tu DODAJ PRZYCISKI  -->
                     </StackPanel>
-                    <StackPanel Visibility="{Binding UserIsSuperadmin, Converter={StaticResource BoolToVisibility}}">
-                        <TextBlock Text="Tu dalej dodaj" />
+                    <StackPanel x:Name="InstallatorPages">
+                        <TextBlock
+                            Margin="0"
+                            Padding="15,10"
+                            HorizontalAlignment="Stretch"
+                            Background="#FF222830"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Style="{StaticResource TitleStyle}"
+                            Text="Panel Instalatora"
+                            TextAlignment="Center" />
+                        <Separator
+                            Height="0.4"
+                            Margin="0,-5,0,0"
+                            Background="{StaticResource UnactiveBackgroundBrush}" />
+                        <ui:Button
+                            x:Name="ForkliftManagementPageButton"
+                            Padding="15,10"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding ForkliftManagementPageButtonClick}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    Source="Models/Resources/Icons/ForkliftManagementPageWhite.png" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="Zarządzanie wózkami" />
+                            </Grid>
+                        </ui:Button>
                     </StackPanel>
-                    <StackPanel Visibility="{Binding UserIsSuperadmin, Converter={StaticResource BoolToVisibility}}">
+                    <StackPanel>
                         <TextBlock Text="Tu tez dodaj" />
                     </StackPanel>
 

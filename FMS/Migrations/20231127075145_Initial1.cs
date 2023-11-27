@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FMS.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -87,6 +87,7 @@ namespace FMS.Migrations
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
                     Tag = table.Column<string>(type: "TEXT", nullable: false),
+                    IsLogged = table.Column<bool>(type: "INTEGER", nullable: false),
                     Client = table.Column<bool>(type: "INTEGER", nullable: false),
                     Installator = table.Column<bool>(type: "INTEGER", nullable: false),
                     Admin = table.Column<bool>(type: "INTEGER", nullable: false)

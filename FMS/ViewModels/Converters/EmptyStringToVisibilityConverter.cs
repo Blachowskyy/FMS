@@ -13,7 +13,7 @@ namespace FleetManagementSystem.ViewModels.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string temp = value as string;
+            string? temp = value as string;
             if (temp == "" || string.IsNullOrEmpty(temp)) return Visibility.Collapsed;
             else return Visibility.Visible;
         }

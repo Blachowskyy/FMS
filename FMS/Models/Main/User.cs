@@ -49,6 +49,19 @@ namespace FMS.Models.Main
                 OnPropertyChanged(nameof(Tag));
             }
         }
+        private bool _isLogged;
+        public bool IsLogged
+        {
+            get
+            {
+                return _isLogged;
+            }
+            set
+            {
+                _isLogged = value;
+                OnPropertyChanged(nameof(IsLogged));
+            }
+        }
         private bool _client;
         public bool Client
         {

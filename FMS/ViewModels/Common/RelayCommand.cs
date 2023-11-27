@@ -48,7 +48,9 @@ namespace FleetManagementSystem.ViewModels.Common
         public bool CanExecute(object parameter) => _canExecute == null || _canExecute(parameter);
 #pragma warning restore CS8767 // Dopuszczanie wartości null dla typów referencyjnych w typie parametru nie jest zgodne z niejawnie zaimplementowaną składową (prawdopodobnie z powodu atrybutów dopuszczania wartości null).
 
+#pragma warning disable CS8612 // Obsługa wartości null dla typów referencyjnych w typie jest niezgodna z niejawnie implementowaną składową.
         public event EventHandler CanExecuteChanged
+#pragma warning restore CS8612 // Obsługa wartości null dla typów referencyjnych w typie jest niezgodna z niejawnie implementowaną składową.
         {
             add
             {

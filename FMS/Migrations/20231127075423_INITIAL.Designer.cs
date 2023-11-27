@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FMS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231123120946_initial")]
-    partial class initial
+    [Migration("20231127075423_INITIAL")]
+    partial class INITIAL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -172,6 +172,9 @@ namespace FMS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("Installator")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsLogged")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Password")

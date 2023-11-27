@@ -24,6 +24,8 @@ namespace FMS.Services.HostBuilders
                 services.AddSingleton<Location>();
                 services.AddSingleton<JobStep>();
                 services.AddSingleton<Job>();
+                services.AddScoped<UserDataService>();
+                services.AddScoped<ForklfitDataService>();
                 services.AddSingleton<List<Forklift>>(provider => new List<Forklift>());
                 services.AddSingleton<List<Location>>(provider => new List<Location>());
                 services.AddTransient<IDataService<JobStepType>, JobStepTypeDataService>();
