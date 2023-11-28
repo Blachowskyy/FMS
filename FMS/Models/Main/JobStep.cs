@@ -76,6 +76,19 @@ namespace FMS.Models.Main
                 OnPropertyChanged(nameof(IsCanceled));
             }
         }
+        private JobStepType? _jobType;
+        public JobStepType JobType
+        {
+            get
+            {
+                return _jobType ??= new JobStepType();
+            }
+            set
+            {
+                _jobType = value;
+                OnPropertyChanged(nameof(JobType));
+            }
+        }
         #endregion
         #region Constructors
         public JobStep() { }
