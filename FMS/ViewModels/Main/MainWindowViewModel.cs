@@ -5,6 +5,7 @@ using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
 using FMS.ViewModels.Common;
 using FMS.Views.Main;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using ServiceStack;
 using System.Collections.ObjectModel;
@@ -128,7 +129,7 @@ namespace FMS.ViewModels.Main
         {
             get
             {
-                return _connectedForklifts ??= new List<Forklift>();
+                return _connectedForklifts ??= [];
             }
             set
             {
@@ -144,8 +145,10 @@ namespace FMS.ViewModels.Main
         private readonly IDataService<Job> _jobDataService;
         private readonly IDataService<Location> _locationDataService;
         private readonly ForklfitDataService _forkliftDataService;
-        private UserStore _userStore;
-        private bool isMenuVisible;
+        private readonly ForkliftConnection _forkliftConnectionService;
+        private readonly UserStore _userStore;
+        private readonly bool isMenuVisible;
+        private IEnumerable<Forklift>? _readedForklifts;
         public bool ShowMenu {  get; set; }
         #endregion
         #endregion
@@ -156,7 +159,8 @@ namespace FMS.ViewModels.Main
         IDataService<Job> jobDataService,
         IDataService<Location> locationDataService,
         ForklfitDataService forkliftDataService,
-        UserStore userStore)
+        UserStore userStore,
+        ForkliftConnection forkliftConnectionService)
 
         {
             Log.Logger = new LoggerConfiguration()
@@ -171,6 +175,7 @@ namespace FMS.ViewModels.Main
             _locationDataService = locationDataService;
             _forkliftDataService = forkliftDataService;
             _userStore = userStore;
+            _forkliftConnectionService = forkliftConnectionService;
             SetMenuVisibility();
             _userStore.StateChanged += OnUserChanged;
             ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
@@ -216,6 +221,52 @@ namespace FMS.ViewModels.Main
                 AdminMenuVisible = true;
             }
         }
+        private async void ConnectToForklifts()
+        {
+            _readedForklifts ??= await _forkliftDataService.GetAll();
+            foreach (Forklift fork in _readedForklifts)
+            {
+                if(!fork.IsConnected)
+                {
+                    await Task.Run(() => { Task<bool> connect = _forkliftConnectionService.Connect(fork); });
+                    await Task.Delay(100);
+                }
+                if (fork.Client.Connected)
+                {
+                    fork.Data ??= new();
+                    await Task.Run(() =>
+                    {
+                        Task communication = _forkliftConnectionService.HandleDataExchange(fork);
+                    });
+                    if (_connectedForklifts != null)
+                    {
+                        if(_connectedForklifts.Count > 0)
+                        {
+                            int lenghtCheck = _connectedForklifts.Count;
+                            if (lenghtCheck >= fork.Id)
+                            {
+                                if (_connectedForklifts.ElementAt(fork.Id - 1) == null)
+                                {
+                                    _connectedForklifts.Insert(fork.Id, fork);
+                                }
+                            }
+                            else
+                            {
+                                _connectedForklifts.Add(fork);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        _connectedForklifts = [];
+                        ConnectedForklifts.Add(fork);
+                    }
+                   
+                }
+            }
+            
+        }
         #endregion
         #region Buttons logic
         private void ExecuteShutdownAppButtonClick(object? param)
@@ -231,6 +282,7 @@ namespace FMS.ViewModels.Main
         private void ExecuteForkliftManagementPageButtonClick(object? param)
         {
             Log.Information("Clicked forklift management page button...");
+            _connectedForklifts ??= [];
             CurrentPage = new ForkliftManagementPage(new ForkliftManagementPageViewModel(_forkliftDataService, _connectedForklifts));
         }
         #endregion

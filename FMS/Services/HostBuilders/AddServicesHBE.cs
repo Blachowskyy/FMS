@@ -26,6 +26,7 @@ namespace FMS.Services.HostBuilders
                 services.AddSingleton<Job>();
                 services.AddScoped<UserDataService>();
                 services.AddScoped<ForklfitDataService>();
+                services.AddSingleton<ForkliftConnection>();
                 services.AddSingleton<List<Forklift>>(provider => new List<Forklift>());
                 services.AddSingleton<List<Location>>(provider => new List<Location>());
                 services.AddTransient<IDataService<JobStepType>, JobStepTypeDataService>();
@@ -35,6 +36,7 @@ namespace FMS.Services.HostBuilders
                 services.AddTransient<IDataService<Location>,  LocationDataService>();
                 services.AddTransient<IDataService<Forklift>, ForklfitDataService>();
                 services.AddSingleton<IUserStore, UserStore>();
+                services.AddTransient<IForkliftConnection, ForkliftConnection>(provider => new ForkliftConnection());
                 services.AddSingleton<UserStore>();
             });
             return hostBuilder;
