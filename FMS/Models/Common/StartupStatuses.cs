@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FMS.Models.Common
+﻿namespace FMS.Models.Common
 {
     public class StartupStatuses : CommonBaseModel
     {

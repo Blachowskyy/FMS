@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace FleetManagementSystem.ViewModels.Common
+namespace FMS.ViewModels.Common
 {
     class RelayCommand : ICommand
     {
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
-        private ICommand showStep2ButtonCommand;
+#pragma warning disable IDE0052 // Usuń nieodczytywane składowe prywatne
+        private readonly ICommand showStep2ButtonCommand;
+#pragma warning restore IDE0052 // Usuń nieodczytywane składowe prywatne
 
         public Action AddItems { get; }
 
@@ -26,7 +23,7 @@ namespace FleetManagementSystem.ViewModels.Common
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
 #pragma warning restore CS8618 // Pole niedopuszczające wartości null musi zawierać wartość inną niż null podczas kończenia działania konstruktora. Rozważ zadeklarowanie pola jako dopuszczającego wartość null.
         {
-            _execute = execute ?? throw new ArgumentNullException("execute");
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 

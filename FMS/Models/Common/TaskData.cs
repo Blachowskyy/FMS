@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FMS.Models.Common
+﻿namespace FMS.Models.Common
 {
     public class TaskData : CommonBaseModel
     {
@@ -30,10 +24,10 @@ namespace FMS.Models.Common
             }
             set
             {
-                _type = value; 
+                _type = value;
                 OnPropertyChanged(nameof(Type));
             }
         }
-/*        private string? _positionX*/
+        /*        private string? _positionX*/
     }
 }

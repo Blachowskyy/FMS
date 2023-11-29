@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FMS.Models.Common
+﻿namespace FMS.Models.Common
 {
     public class TebConfigData : CommonBaseModel
     {
@@ -31,7 +25,7 @@ namespace FMS.Models.Common
             }
             set
             {
-                _backwardMaxVelocity = value; 
+                _backwardMaxVelocity = value;
                 OnPropertyChanged(nameof(BackwardMaxVelocity));
             }
         }
@@ -161,7 +155,7 @@ namespace FMS.Models.Common
             }
             set
             {
-                _dynamicObstacleInflationRadius= value;
+                _dynamicObstacleInflationRadius = value;
                 OnPropertyChanged(nameof(DynamicObstacleInflationRadius));
             }
         }

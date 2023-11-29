@@ -1,14 +1,9 @@
 ﻿using FMS.Models.Main;
 using FMS.Services.Common;
-using FMS.Services.Common.Interfaces;
 using FMS.Services.Common.DataServices;
+using FMS.Services.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FMS.Services.HostBuilders
 {
@@ -33,7 +28,7 @@ namespace FMS.Services.HostBuilders
                 services.AddTransient<IDataService<JobStep>, JobStepDataService>();
                 services.AddTransient<IDataService<Job>, JobDataService>();
                 services.AddTransient<IDataService<User>, UserDataService>();
-                services.AddTransient<IDataService<Location>,  LocationDataService>();
+                services.AddTransient<IDataService<Location>, LocationDataService>();
                 services.AddTransient<IDataService<Forklift>, ForklfitDataService>();
                 services.AddSingleton<IUserStore, UserStore>();
                 services.AddTransient<IForkliftConnection, ForkliftConnection>(provider => new ForkliftConnection());

@@ -1,13 +1,9 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
-using FMS.Models.Main;
-using FMS.Services.Common.Interfaces;
-using FMS.Services.HostBuilders;
+﻿using FMS.Services.HostBuilders;
 using FMS.ViewModels.Main;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System.Windows;
 
 namespace FMS
 {
@@ -17,7 +13,7 @@ namespace FMS
     public partial class App : Application
     {
         private readonly IHost _host;
-       /* private readonly IDataService<Forklift>? _ForkliftDataService;*/
+        /* private readonly IDataService<Forklift>? _ForkliftDataService;*/
         /*private IEnumerable<Forklift>? _forkliftsList;*/
         public App()
         {
@@ -47,8 +43,9 @@ namespace FMS
             await _host.StartAsync();
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.DataContext = _host.Services.GetRequiredService<MainWindowViewModel>();
-/*            Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
-*/            if (!MainWindow.IsLoaded)
+            /*            Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
+            */
+            if (!MainWindow.IsLoaded)
             {
                 MainWindow.Show();
             }

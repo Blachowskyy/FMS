@@ -1,18 +1,13 @@
-﻿using FleetManagementSystem.ViewModels.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
 using FMS.ViewModels.Common;
 using FMS.Views.Main;
-using Microsoft.Extensions.Logging;
 using Serilog;
-using ServiceStack;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Wpf.Ui.Input;
 
 namespace FMS.ViewModels.Main
 {
@@ -120,7 +115,7 @@ namespace FMS.ViewModels.Main
             }
             set
             {
-                _adminMenuVisible = value; 
+                _adminMenuVisible = value;
                 OnPropertyChanged(nameof(AdminMenuVisible));
             }
         }
@@ -147,9 +142,8 @@ namespace FMS.ViewModels.Main
         private readonly ForklfitDataService _forkliftDataService;
         private readonly ForkliftConnection _forkliftConnectionService;
         private readonly UserStore _userStore;
-        private readonly bool isMenuVisible;
         private IEnumerable<Forklift>? _readedForklifts;
-        public bool ShowMenu {  get; set; }
+        public bool ShowMenu { get; set; }
         #endregion
         #endregion
         #region Constructors
@@ -181,7 +175,7 @@ namespace FMS.ViewModels.Main
             ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
             LoginPageButtonClick = new RelayCommand(ExecuteLoginPageButtonClick);
             ForkliftManagementPageButtonClick = new RelayCommand(ExecuteForkliftManagementPageButtonClick);
-
+            ConnectToForklifts();
         }
         #endregion
         #region ProgramLogic
@@ -226,7 +220,7 @@ namespace FMS.ViewModels.Main
             _readedForklifts ??= await _forkliftDataService.GetAll();
             foreach (Forklift fork in _readedForklifts)
             {
-                if(!fork.IsConnected)
+                if (!fork.IsConnected)
                 {
                     await Task.Run(() => { Task<bool> connect = _forkliftConnectionService.Connect(fork); });
                     await Task.Delay(100);
@@ -240,7 +234,7 @@ namespace FMS.ViewModels.Main
                     });
                     if (_connectedForklifts != null)
                     {
-                        if(_connectedForklifts.Count > 0)
+                        if (_connectedForklifts.Count > 0)
                         {
                             int lenghtCheck = _connectedForklifts.Count;
                             if (lenghtCheck >= fork.Id)
@@ -262,10 +256,10 @@ namespace FMS.ViewModels.Main
                         _connectedForklifts = [];
                         ConnectedForklifts.Add(fork);
                     }
-                   
+
                 }
             }
-            
+
         }
         #endregion
         #region Buttons logic
@@ -277,7 +271,7 @@ namespace FMS.ViewModels.Main
         {
             Log.Information("Clicked login page button...");
             CurrentPage = new LoginPage(new LoginPageViewModel(_userDataService, _userStore));
-            
+
         }
         private void ExecuteForkliftManagementPageButtonClick(object? param)
         {

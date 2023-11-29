@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FMS.Models.Common.Errors
+﻿namespace FMS.Models.Common.Errors
 {
     public class DeltaErrorCodes : CommonBaseModel
     {
@@ -40,7 +34,7 @@ namespace FMS.Models.Common.Errors
         {
             get
             {
-                return  _tiltSensorAxis1ErrorCode ?? string.Empty;
+                return _tiltSensorAxis1ErrorCode ?? string.Empty;
             }
             set
             {

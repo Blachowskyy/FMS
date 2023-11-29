@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FMS.Services.Common.Interfaces
+﻿namespace FMS.Services.Common.Interfaces
 {
     public interface IDataService<T>
     {

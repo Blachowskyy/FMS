@@ -1,13 +1,8 @@
 ﻿using FMS.Models.Main;
 using FMS.Services.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Serilog;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using Serilog;
-using Microsoft.Extensions.Logging;
 
 namespace FMS.Services.Common
 {
@@ -38,7 +33,7 @@ namespace FMS.Services.Common
                 Log.Fatal("Exception while connecting to Forklift server: " + fork.Name + ": " + ex.Message);
                 return false;
             }
-            
+
         }
         public async Task<bool> Reconnect(Forklift fork, int retryInterval = 5000, int maxRetries = 5)
         {
@@ -46,7 +41,7 @@ namespace FMS.Services.Common
             fork.Client.Dispose();
             fork.Client = new TcpClient();
             int retryCounter = 0;
-            while (!fork.Client.Connected && retryCounter < maxRetries) 
+            while (!fork.Client.Connected && retryCounter < maxRetries)
             {
                 try
                 {
@@ -178,6 +173,10 @@ namespace FMS.Services.Common
                             var forkliftCommandsConfirmationsData = new List<string>(commandsConfirmationsDataSet.Split('#'));
                             #endregion
                             #region Live data assignment
+                            if (forkliftLiveData.Count > 18)
+                            {
+                                forkliftLiveData.RemoveAt(forkliftLiveData.Count - 1);
+                            }
                             if (forkliftLiveData.Count == 18)
                             {
                                 fork.Data.LiveParameters.PositionX = forkliftLiveData[0] + " M";
@@ -205,6 +204,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Safety data assignment
+                            if (forkliftSafetyData.Count > 24)
+                            {
+                                forkliftSafetyData.RemoveAt(0);
+                                forkliftSafetyData.RemoveAt(forkliftSafetyData.Count - 1);
+                            }
                             if (forkliftSafetyData.Count == 24)
                             {
                                 if (fork.Data.SafetyData != null)
@@ -241,6 +245,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Scangrids Data assignment
+                            if (forkliftScangridsData.Count > 22)
+                            {
+                                forkliftScangridsData.RemoveAt(0);
+                                forkliftScangridsData.RemoveAt(forkliftScangridsData.Count - 1);
+                            }
                             if (forkliftScangridsData.Count == 22)
                             {
                                 fork.Data.LeftScangrid.IsActive = Convert.ToBoolean(forkliftSafetyData[0]);
@@ -272,6 +281,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Delta errors assignment
+                            if (forkliftDeltaErrorsData.Count > 24)
+                            {
+                                forkliftDeltaErrorsData.RemoveAt(0);
+                                forkliftDeltaErrorsData.RemoveAt(forkliftDeltaErrorsData.Count - 1);
+                            }
                             if (forkliftDeltaErrorsData.Count == 24)
                             {
                                 if (fork.Data.PlcErrors != null)
@@ -308,6 +322,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Workstates assignment
+                            if (forkliftActualWorkstatesData.Count > 14)
+                            {
+                                forkliftActualWorkstatesData.RemoveAt(0);
+                                forkliftActualWorkstatesData.RemoveAt(forkliftActualWorkstatesData.Count - 1);
+                            }
                             if (forkliftActualWorkstatesData.Count == 14)
                             {
                                 fork.Data.ActualWorkstates.S01 = Convert.ToBoolean(forkliftActualWorkstatesData[0]);
@@ -331,6 +350,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Ethernet status assignment
+                            if (forkliftEthernetData.Count > 10)
+                            {
+                                forkliftEthernetData.RemoveAt(0);
+                                forkliftEthernetData.RemoveAt(forkliftEthernetData.Count - 1);
+                            }
                             if (forkliftEthernetData.Count == 10)
                             {
                                 fork.Data.Startup.GatewayStart = Convert.ToBoolean(forkliftEthernetData[0]);
@@ -351,6 +375,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Startup status data
+                            if (forkliftStartupData.Count > 5)
+                            {
+                                forkliftStartupData.RemoveAt(0);
+                                forkliftStartupData.RemoveAt(forkliftStartupData.Count - 1);
+                            }
                             if (forkliftStartupData.Count == 5)
                             {
                                 fork.Data.Startup.EthernetTest = Convert.ToBoolean(forkliftStartupData[0]);
@@ -365,6 +394,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Actual TEB configuration assingment
+                            if (forkliftActualTebConfigData.Count > 19)
+                            {
+                                forkliftActualTebConfigData.RemoveAt(0);
+                                forkliftActualTebConfigData.RemoveAt(forkliftActualTebConfigData.Count - 1);
+                            }
                             if (forkliftActualTebConfigData.Count == 19)
                             {
                                 fork.Data.ActualTebConfig.WheelBase = forkliftActualTebConfigData[0];
@@ -393,6 +427,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Actual task assingment
+                            if (forkliftActualTebConfigData.Count > 5)
+                            {
+                                forkliftActualTaskData.RemoveAt(0);
+                                forkliftActualTaskData.RemoveAt(forkliftActualTaskData.Count - 1);
+                            }
                             if (forkliftActualTaskData.Count == 5)
                             {
                                 fork.Data.ActualTask.Id = Convert.ToInt32(forkliftActualTaskData[0]);
@@ -407,6 +446,11 @@ namespace FMS.Services.Common
                             }
                             #endregion
                             #region Orders confirmations assignment
+                            if (forkliftCommandsConfirmationsData.Count > 9)
+                            {
+                                forkliftCommandsConfirmationsData.RemoveAt(0);
+                                forkliftCommandsConfirmationsData.RemoveAt(forkliftCommandsConfirmationsData.Count - 1);
+                            }
                             if (forkliftCommandsConfirmationsData.Count == 9)
                             {
                                 fork.Data.OrdersConfirmations.StartAutoMode = Convert.ToBoolean(forkliftCommandsConfirmationsData[0]);

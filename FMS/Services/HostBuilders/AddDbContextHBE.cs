@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Hosting;
-using FMS.Services.Database;
+﻿using FMS.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 namespace FMS.Services.HostBuilders
 {
     public static class AddDbContextHBE

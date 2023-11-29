@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Data;
 
-namespace FleetManagementSystem.ViewModels.Converters
+namespace FMS.ViewModels.Converters
 {
     public class BoolToCheckBoxConverter : IValueConverter
     {
@@ -17,7 +12,7 @@ namespace FleetManagementSystem.ViewModels.Converters
             {
                 return checked((bool)value);
             }
-            else 
+            else
             {
                 return unchecked((bool)value);
             }

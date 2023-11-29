@@ -1,14 +1,8 @@
-﻿using FleetManagementSystem.ViewModels.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
 using FMS.ViewModels.Common;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.Main
@@ -38,7 +32,7 @@ namespace FMS.ViewModels.Main
             }
             set
             {
-                _password = value; 
+                _password = value;
                 OnPropertyChanged(nameof(Password));
             }
         }
@@ -95,7 +89,7 @@ namespace FMS.ViewModels.Main
             }
         }
         private readonly UserDataService _userDataService;
-        private UserStore _userStore;
+        private readonly UserStore _userStore;
         #endregion
         #region Constructors
         public LoginPageViewModel(UserDataService userDataService, UserStore userStore)
