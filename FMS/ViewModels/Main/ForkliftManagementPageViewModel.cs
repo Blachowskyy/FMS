@@ -160,15 +160,8 @@ namespace FMS.ViewModels.Main
             verify = VerifyForklift();
             if (verify && _forkliftDataService != null && _currentForklfit != null)
             {
-                Forklift forkliftToAdd = new()
-                {
-                    Name = _currentForklfit.Name,
-                    IpAdress = _currentForklfit.IpAdress,
-                    Port = _currentForklfit.Port,
-                    LidarLocAddress = _currentForklfit.LidarLocAddress,
-                    RegistrstationDate = DateTime.Now
-                };
-                await _forkliftDataService.Create(forkliftToAdd);
+                CurrentForklift.Id = 0;
+                await _forkliftDataService.Create(_currentForklfit);
                 
             }
             LoadSavedForklifts();
@@ -227,6 +220,7 @@ namespace FMS.ViewModels.Main
             {
                 Log.Error("Forklift not deleted!!!");
             }
+            LoadSavedForklifts();
         }
         private async void SelectForklift(object param)
         {
