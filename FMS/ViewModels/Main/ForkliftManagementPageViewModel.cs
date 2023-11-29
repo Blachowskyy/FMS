@@ -214,7 +214,7 @@ namespace FMS.ViewModels.Main
             }
             if (result)
             {
-                Log.Error("Forklift deleted successfully");
+                Log.Information("Forklift deleted successfully");
             }
             if (!result)
             {
