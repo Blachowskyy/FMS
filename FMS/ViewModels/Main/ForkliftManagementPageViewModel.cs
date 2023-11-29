@@ -1,8 +1,14 @@
-﻿using FMS.Models.Main;
+﻿using FMS.ViewModels.Common;
+using FMS.Models.Main;
 using FMS.Services.Common.DataServices;
-using FMS.ViewModels.Common;
 using Serilog;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.Main
@@ -23,70 +29,6 @@ namespace FMS.ViewModels.Main
                 {
                     _connectionStatusIconPath = value;
                     OnPropertyChanged(nameof(ConnectionStatusIconPath));
-                }
-            }
-        }
-        private string? _name;
-        public string Name
-        {
-            get
-            {
-                return _name ?? string.Empty;
-            }
-            set
-            {
-                if (_name != value)
-                {
-                    _name = value;
-                    OnPropertyChanged(nameof(Name));
-                }
-            }
-        }
-        private string? _ipAddress;
-        public string IpAddress
-        {
-            get
-            {
-                return _ipAddress ?? string.Empty;
-            }
-            set
-            {
-                if (value != _ipAddress)
-                {
-                    _ipAddress = value;
-                    OnPropertyChanged(nameof(IpAddress));
-                }
-            }
-        }
-        private int _port;
-        public int Port
-        {
-            get
-            {
-                return _port;
-            }
-            set
-            {
-                if (_port != value)
-                {
-                    _port = value;
-                    OnPropertyChanged(nameof(Port));
-                }
-            }
-        }
-        private string? _lidarLocAddress;
-        public string LidarLocAddress
-        {
-            get
-            {
-                return _lidarLocAddress ?? string.Empty;
-            }
-            set
-            {
-                if (_lidarLocAddress != value)
-                {
-                    _lidarLocAddress = value;
-                    OnPropertyChanged(nameof(LidarLocAddress));
                 }
             }
         }
@@ -227,7 +169,7 @@ namespace FMS.ViewModels.Main
                     RegistrstationDate = DateTime.Now
                 };
                 await _forkliftDataService.Create(forkliftToAdd);
-
+                
             }
             LoadSavedForklifts();
         }
@@ -239,7 +181,7 @@ namespace FMS.ViewModels.Main
                 LoadSavedForklifts();
                 if (_savedForklifts != null)
                 {
-                    foreach (Forklift forklift in _savedForklifts)
+                    foreach(Forklift forklift in _savedForklifts)
                     {
                         if (forklift.Id == _currentForklfit.Id)
                         {
@@ -274,7 +216,7 @@ namespace FMS.ViewModels.Main
                 }
                 if (verify)
                 {
-                    result = await _forkliftDataService.Delete(_currentForklfit.Id);
+                   result =  await _forkliftDataService.Delete(_currentForklfit.Id);
                 }
             }
             if (result)
@@ -298,7 +240,7 @@ namespace FMS.ViewModels.Main
                     {
                         foreach (Forklift fork in _onlineForklifts)
                         {
-                            if (fork.Id == _currentForklfit.Id)
+                            if (fork.Id == _currentForklfit.Id) 
                             {
                                 CurrentForklift.IsConnected = true;
                             }
@@ -314,7 +256,7 @@ namespace FMS.ViewModels.Main
             catch (Exception ex)
             {
                 Log.Fatal(ex.ToString());
-            }
+            }  
         }
         private void PingForklift()
         {
@@ -355,7 +297,7 @@ namespace FMS.ViewModels.Main
         public ICommand? AddForkliftButtonClick { get; private set; }
         public ICommand? UpdateForkliftButtonClick { get; private set; }
         public ICommand? DeleteForkliftButtonClick { get; private set; }
-        public ICommand? SelectForklfitFromList { get; private set; }
+        public ICommand? SelectForklfitFromList {  get; private set; }
         public ICommand? PingForkliftButtonCLick { get; private set; }
 
         #endregion
