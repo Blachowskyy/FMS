@@ -1,4 +1,5 @@
-﻿using FMS.Models.Main;
+﻿
+using FMS.Models.Main;
 using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
@@ -8,6 +9,7 @@ using Serilog;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf.Ui.Mvvm.Services;
 
 namespace FMS.ViewModels.Main
 {
@@ -176,6 +178,7 @@ namespace FMS.ViewModels.Main
             LoginPageButtonClick = new RelayCommand(ExecuteLoginPageButtonClick);
             ForkliftManagementPageButtonClick = new RelayCommand(ExecuteForkliftManagementPageButtonClick);
             ConnectToForklifts();
+
         }
         #endregion
         #region ProgramLogic

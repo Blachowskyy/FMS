@@ -4,6 +4,8 @@ using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wpf.Ui.Mvvm.Contracts;
+using Wpf.Ui.Mvvm.Services;
 
 namespace FMS.Services.HostBuilders
 {
@@ -24,6 +26,7 @@ namespace FMS.Services.HostBuilders
                 services.AddSingleton<ForkliftConnection>();
                 services.AddSingleton<List<Forklift>>(provider => new List<Forklift>());
                 services.AddSingleton<List<Location>>(provider => new List<Location>());
+                services.AddSingleton<ISnackbarService, SnackbarService>();
                 services.AddTransient<IDataService<JobStepType>, JobStepTypeDataService>();
                 services.AddTransient<IDataService<JobStep>, JobStepDataService>();
                 services.AddTransient<IDataService<Job>, JobDataService>();

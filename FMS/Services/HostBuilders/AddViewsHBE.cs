@@ -17,6 +17,8 @@ namespace FMS.Services.HostBuilders
                 new LoginPage(s.GetRequiredService<LoginPageViewModel>()));
                 services.AddSingleton<ForkliftManagementPage>(s =>
                 new ForkliftManagementPage(s.GetRequiredService<ForkliftManagementPageViewModel>()));
+                services.AddSingleton<UsersPage>(s =>
+                new UsersPage(s.GetRequiredService<UsersPageViewModel>())); 
             });
             return hostBuilder;
         }
