@@ -21,7 +21,7 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -47,7 +47,7 @@
                     Orientation="Vertical">
                     <TextBox MinWidth="300" Text="{Binding Username}" />
                     <Separator Height="10" />
-                    <TextBox MinWidth="300" Text="{Binding Password}" />
+                    <ui:PasswordBox MinWidth="300" Text="{Binding Password}" />
                 </StackPanel>
 
             </StackPanel>
@@ -58,6 +58,7 @@
                         Height="45"
                         MinWidth="100"
                         HorizontalAlignment="Center"
+                        Appearance="Success"
                         Background="White"
                         Command="{Binding LoginButtonClick}"
                         CommandParameter="true">

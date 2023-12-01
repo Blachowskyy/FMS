@@ -179,6 +179,7 @@ namespace FMS.Services.Common
                             }
                             if (forkliftLiveData.Count == 18)
                             {
+                                fork.Data.LastDataUpdate = Convert.ToString(DateTime.Now);
                                 fork.Data.LiveParameters.PositionX = forkliftLiveData[0] + " M";
                                 fork.Data.LiveParameters.PositionY = forkliftLiveData[1] + " M";
                                 fork.Data.LiveParameters.PositionR = forkliftLiveData[2] + " °";
@@ -334,7 +335,7 @@ namespace FMS.Services.Common
                                 fork.Data.ActualWorkstates.S03 = Convert.ToBoolean(forkliftActualWorkstatesData[2]);
                                 fork.Data.ActualWorkstates.S1 = Convert.ToBoolean(forkliftActualWorkstatesData[3]);
                                 fork.Data.ActualWorkstates.S2 = Convert.ToBoolean(forkliftActualWorkstatesData[4]);
-                                fork.Data.ActualWorkstates.S2 = Convert.ToBoolean(forkliftActualWorkstatesData[5]);
+                                fork.Data.ActualWorkstates.S3 = Convert.ToBoolean(forkliftActualWorkstatesData[5]);
                                 fork.Data.ActualWorkstates.S4 = Convert.ToBoolean(forkliftActualWorkstatesData[6]);
                                 fork.Data.ActualWorkstates.S40 = Convert.ToBoolean(forkliftActualWorkstatesData[7]);
                                 fork.Data.ActualWorkstates.S41 = Convert.ToBoolean(forkliftActualWorkstatesData[8]);

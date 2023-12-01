@@ -1,14 +1,209 @@
-﻿<Page x:Class="FMS.Views.LiveForklifsPages.WorkstatesPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="WorkstatesPage">
-
+﻿<Page
+    x:Class="FMS.Views.LiveForklifsPages.WorkstatesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:FMS.ViewModels.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="WorkstatesPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:BoolToStatusGreenGrey x:Key="STatusGreenGrey" />
+    </Page.Resources>
     <Grid>
-        
+        <StackPanel Margin="110,50,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="70,0,0,0"
+                    FontSize="26"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Główna maszyna stanów" />
+                <TextBlock
+                    Margin="240,0,0,0"
+                    FontSize="26"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Stany trybu autonomicznego" />
+
+            </StackPanel>
+            <Separator Height="25" Margin="0,0,0,0" />
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Width="50">
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0">
+                        <Separator Height="13" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S0.1 - oczekiwanie na wybór trybu pracy" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S0.2 - Bezpieczeństwo dla otoczenia poziom 1" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S0.3 - Praca w trybie ręcznym" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S1 - Inicjalizacja trybu automatycznego" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S2 - Autodiagnostyka" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S3 - Bezpieczeństwo dla otoczenia poziom 2" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4 - PRaca w trybie autonomicznym" />
+                    </StackPanel>
+                    <StackPanel Width="40" Margin="10,0,0,0">
+                        <Separator Height="7" />
+                        <Image Source="{Binding Dataset.S01, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S02, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S03, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S1, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S2, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S3, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S4, Converter={StaticResource STatusGreenGrey}}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="70,0,0,0" Orientation="Horizontal">
+                    <StackPanel Width="50">
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Separator Height="5" />
+                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0">
+                        <Separator Height="13" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            xml:space="preserve"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.0 - Tryb &#x22;Standby&#x22; (osczęczanie energii)" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.1 - Jazda z punktu A do B z nawigacją" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.2 - Sekwencja ładowania" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.3 - Załadunek palety w magazynie" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.4 - Rozładunek palety w magazynie" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.5 - Załadunek palety w gnieździe roboczym" />
+                        <Separator Height="31" />
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            Text="S4.6 - Rozładunek palety w gnieździe roboczym" />
+                    </StackPanel>
+                    <StackPanel Width="40" Margin="10,0,0,0">
+                        <Separator Height="7" />
+                        <Image Source="{Binding Dataset.S40, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S41, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S42, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S43, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S44, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S45, Converter={StaticResource STatusGreenGrey}}" />
+                        <Separator Height="15" />
+                        <Image Source="{Binding Dataset.S46, Converter={StaticResource STatusGreenGrey}}" />
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

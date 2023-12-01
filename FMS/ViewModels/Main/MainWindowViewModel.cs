@@ -177,6 +177,8 @@ namespace FMS.ViewModels.Main
             ShutdownAppButtonClick = new RelayCommand(ExecuteShutdownAppButtonClick);
             LoginPageButtonClick = new RelayCommand(ExecuteLoginPageButtonClick);
             ForkliftManagementPageButtonClick = new RelayCommand(ExecuteForkliftManagementPageButtonClick);
+            UsersPageButtonClick = new RelayCommand(ExecuteUsersPageButtonCLick);
+            LiveDataPageButtonClick = new RelayCommand(ExecuteLiveDataButtonClick);
             ConnectToForklifts();
 
         }
@@ -187,7 +189,11 @@ namespace FMS.ViewModels.Main
             if (_userStore.CurrentUser != null)
             {
                 CurrentUser = _userStore.CurrentUser;
-                LoginPageIcon = "Models/Resources/Icons/LogoutPageWhite.png";
+                LoginPageIcon = "/Models/Resources/Icons/LogoutPageWhite.png";
+            }
+            else
+            {
+                LoginPageIcon = "/Models/Resources/Icons/LoginPageWhite.png";
             }
             SetMenuVisibility();
         }
@@ -282,11 +288,24 @@ namespace FMS.ViewModels.Main
             _connectedForklifts ??= [];
             CurrentPage = new ForkliftManagementPage(new ForkliftManagementPageViewModel(_forkliftDataService, _connectedForklifts));
         }
+        private void ExecuteUsersPageButtonCLick(object? param)
+        {
+            Log.Information("Clicked users page button...");
+            CurrentPage = new UsersPage(new UsersPageViewModel(_userDataService, _userStore));
+        }
+        private void ExecuteLiveDataButtonClick(object? param)
+        {
+            Log.Information("Clicked live data page button...");
+            _connectedForklifts ??= [];
+            CurrentPage = new LiveForklfitsPage(new LiveForkliftsPageViewModel(_userStore, _connectedForklifts));
+        }
         #endregion
         #region ICommand declarations
         public ICommand? ShutdownAppButtonClick { get; private set; }
         public ICommand? LoginPageButtonClick { get; private set; }
         public ICommand? ForkliftManagementPageButtonClick { get; private set; }
+        public ICommand? UsersPageButtonClick { get; private set; }
+        public ICommand? LiveDataPageButtonClick { get; private set; }
         #endregion
     }
 }

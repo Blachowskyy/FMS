@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using FMS.ViewModels.LiveForkliftsPages;
+using System.Windows.Controls;
 
 namespace FMS.Views.LiveForklifsPages
 {
@@ -7,9 +8,10 @@ namespace FMS.Views.LiveForklifsPages
     /// </summary>
     public partial class ActualParametersPage : Page
     {
-        public ActualParametersPage()
+        public ActualParametersPage(ActualParametersPageViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

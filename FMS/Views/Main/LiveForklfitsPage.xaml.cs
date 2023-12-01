@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using FMS.ViewModels.Main;
+using System.Windows.Controls;
 
 namespace FMS.Views.Main
 {
@@ -7,9 +8,10 @@ namespace FMS.Views.Main
     /// </summary>
     public partial class LiveForklfitsPage : Page
     {
-        public LiveForklfitsPage()
+        public LiveForklfitsPage(LiveForkliftsPageViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

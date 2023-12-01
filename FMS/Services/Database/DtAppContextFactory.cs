@@ -7,7 +7,7 @@ namespace FMS.Services.Database
         public static AppDbContext CreateDbContext()
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite("Data Source=Models/ApplicationData/AppData.db");
+            optionsBuilder.UseSqlite("Dataset Source=Models/ApplicationData/AppData.db");
             return new AppDbContext(optionsBuilder.Options);
         }
     }

@@ -1,4 +1,5 @@
-﻿using FMS.ViewModels.Main;
+﻿using FMS.ViewModels.LiveForkliftsPages;
+using FMS.ViewModels.Main;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -14,6 +15,14 @@ namespace FMS.Services.HostBuilders
                 services.AddTransient<LoginPageViewModel>();
                 services.AddTransient<ForkliftManagementPageViewModel>();
                 services.AddTransient<UsersPageViewModel>();
+                services.AddTransient<LiveForkliftsPageViewModel>();
+                services.AddTransient<ActualParametersPageViewModel>();
+                services.AddTransient<AutoModeStartupPageViewModel>();
+                services.AddTransient<ErrorsPageViewModel>();
+                services.AddTransient<LidarLocPageViewModel>();
+                services.AddTransient<SafetyDataPageViewModel>();
+                services.AddTransient<ForkliftConfigurationPageViewModel>();
+                services.AddTransient<SafetyDataPageViewModel>();
             });
             return hostBuilder;
         }

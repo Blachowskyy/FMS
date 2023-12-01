@@ -15,15 +15,28 @@
     <None Remove="Models\AppSettings\appsettings.json" />
     <None Remove="Models\Resources\Icons\CloseAppWhite.png" />
     <None Remove="Models\Resources\Icons\DeleteBlack.png" />
+    <None Remove="Models\Resources\Icons\ErrorsPageWhite.png" />
     <None Remove="Models\Resources\Icons\ForkliftManagementPageWhite.png" />
+    <None Remove="Models\Resources\Icons\ForkliftSettingsPageWhite.png" />
+    <None Remove="Models\Resources\Icons\LiveDataWhite.png" />
+    <None Remove="Models\Resources\Icons\LiveParametersPageWhite.png" />
     <None Remove="Models\Resources\Icons\LoginButtonBlack.png" />
     <None Remove="Models\Resources\Icons\LoginPageWhite.png" />
     <None Remove="Models\Resources\Icons\LogoutButtonBlack.png" />
+    <None Remove="Models\Resources\Icons\LogoutPageWhite.png" />
     <None Remove="Models\Resources\Icons\MenuIconWhite.png" />
     <None Remove="Models\Resources\Icons\OfflineRed.png" />
     <None Remove="Models\Resources\Icons\OnlineGreen.png" />
+    <None Remove="Models\Resources\Icons\SafetyDataPageWhite.png" />
     <None Remove="Models\Resources\Icons\SaveBlack.png" />
+    <None Remove="Models\Resources\Icons\SickWhiteLogo.png" />
+    <None Remove="Models\Resources\Icons\StartupStatusPageWhite.png" />
+    <None Remove="Models\Resources\Icons\StatusError.png" />
+    <None Remove="Models\Resources\Icons\StatusOK.png" />
+    <None Remove="Models\Resources\Icons\StatusUnactive.png" />
     <None Remove="Models\Resources\Icons\UpdateBlack.png" />
+    <None Remove="Models\Resources\Icons\UsersPageWhite.png" />
+    <None Remove="Models\Resources\Icons\WorkstatesPageWhite.png" />
     <None Remove="Models\Resources\Images\backgroundimg1.png" />
     <None Remove="Models\Resources\Images\Logo.png" />
   </ItemGroup>
@@ -32,7 +45,19 @@
     <Content Include="Models\Resources\Icons\DeleteBlack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Resources\Icons\ErrorsPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\Resources\Icons\ForkliftManagementPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\ForkliftSettingsPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\LiveDataWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\LiveParametersPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\Resources\Icons\LoginButtonBlack.png">
@@ -56,6 +81,9 @@
     <Content Include="Models\Resources\Icons\LoginPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Resources\Icons\LogoutPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\Resources\Icons\MenuIconWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -65,10 +93,34 @@
     <Content Include="Models\Resources\Icons\OnlineGreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Resources\Icons\SafetyDataPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\Resources\Icons\SaveBlack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Resources\Icons\SickWhiteLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\StartupStatusPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\StatusError.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\StatusOK.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\StatusUnactive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\Resources\Icons\UpdateBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\UsersPageWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WorkstatesPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\Resources\Images\backgroundimg1.png">
@@ -132,6 +184,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Models\Resources\ItemsIcons\" />
   </ItemGroup>
 
 </Project>

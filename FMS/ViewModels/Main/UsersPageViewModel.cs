@@ -1,9 +1,8 @@
-﻿using FMS.ViewModels.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
+using FMS.ViewModels.Common;
 using Serilog;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.Main
@@ -33,29 +32,16 @@ namespace FMS.ViewModels.Main
             }
             set
             {
-                _checkPassword = value; 
+                _checkPassword = value;
                 OnPropertyChanged(nameof(CheckPassword));
             }
         }
-        private string? _snackbarApperance;
-        public string SnackbarApperance
+        private IEnumerable<User>? _users;
+        public IEnumerable<User> Users
         {
             get
             {
-                return _snackbarApperance ?? string.Empty;
-            }
-            set
-            {
-                _snackbarApperance = value;
-                OnPropertyChanged(nameof(SnackbarApperance));
-            }
-        }
-        private List<User>? _users;
-        public List<User> Users
-        {
-            get
-            {
-                return _users ?? [];
+                return _users ?? Enumerable.Empty<User>();
             }
             set
             {
@@ -80,9 +66,18 @@ namespace FMS.ViewModels.Main
             AddNewUserButtonClick = new RelayCommand(AddNewUser);
             UpdateUserButtonClick = new RelayCommand(UpdateUserData);
             DeleteUserButtonClick = new RelayCommand(DeleteUser);
+            SelectUserFromList = new RelayCommand(SelectUser);
+            RefreshUsers();
         }
         #endregion
         #region Program logic
+        private async void RefreshUsers()
+        {
+            if (_userDataService != null)
+            {
+                Users = await _userDataService.GetAll();
+            }
+        }
         private bool CheckUserData()
         {
             bool result = true;
@@ -108,23 +103,24 @@ namespace FMS.ViewModels.Main
                     result = false;
                     Log.Error("Password and password confirmation don't match!");
                 }
-                if (!_editededUser.Client && !_editededUser.Installator && !_editededUser.Admin)
+                /*if (!_editededUser.Client && !_editededUser.Installator && !_editededUser.Admin)
                 {
                     result = false;
                     Log.Error("User is lack of privileges!");
-                }
+                }*/
             }
             return result;
         }
         private bool CheckPrivileges(User checkedUser)
         {
             bool result = true;
-            if (_userStore != null && checkedUser != null) 
+            if (_userStore != null && checkedUser != null && _userDataService != null)
             {
+                
                 if (_userStore.CurrentUser.Client)
                 {
-                    if (checkedUser.Installator || checkedUser.Admin) 
-                    { 
+                    if (checkedUser.Installator || checkedUser.Admin)
+                    {
                         result = false;
                         Log.Information("Current user has not sufficient privileges");
                     }
@@ -137,6 +133,11 @@ namespace FMS.ViewModels.Main
                         Log.Information("Current user has not sufficient privileges");
                     }
                 }
+                /*if (!_userStore.CurrentUser.Installator && !_userStore.CurrentUser.Admin && !_userStore.CurrentUser.Client)
+                {
+                    result = false;
+                    Log.Information("Current user has not sufficient privileges");
+                }*/
             }
             return result;
         }
@@ -148,7 +149,7 @@ namespace FMS.ViewModels.Main
             if (result)
             {
                 User addedUser = new();
-                if (_editededUser != null && addedUser != null) 
+                if (_editededUser != null && addedUser != null)
                 {
                     addedUser = _editededUser;
                     addedUser.Id = 0;
@@ -178,6 +179,7 @@ namespace FMS.ViewModels.Main
             {
                 Log.Error("Result after checking user data:" + result);
             }
+            RefreshUsers();
         }
         private async void UpdateUserData(object? param)
         {
@@ -205,6 +207,7 @@ namespace FMS.ViewModels.Main
             {
                 Log.Error("Check user data result is: " + result);
             }
+            RefreshUsers();
         }
         private async void DeleteUser(object? param)
         {
@@ -227,13 +230,22 @@ namespace FMS.ViewModels.Main
             {
                 Log.Error("Edited user is null!");
             }
+            RefreshUsers();
+        }
+        private async void SelectUser(object? param)
+        {
+            if (param != null && _userDataService != null)
+            {
+                EditedUser ??= new();
+                EditedUser = await _userDataService.Get(Convert.ToInt32(param));
+            }
         }
         #endregion
         #region ICommands declarations
         public ICommand? AddNewUserButtonClick { get; private set; }
         public ICommand? UpdateUserButtonClick { get; private set; }
         public ICommand? DeleteUserButtonClick { get; private set; }
-        public ICommand? SelectUserFromList {  get; private set; }
+        public ICommand? SelectUserFromList { get; private set; }
         #endregion
     }
 }

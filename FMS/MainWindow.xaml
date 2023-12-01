@@ -199,20 +199,21 @@
                 <StackPanel
                     x:Name="MenuPanel"
                     Width="80"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    Background="#1e1e1e">
                     <TextBlock
                         Height="50"
                         Margin="0"
                         Padding="15,10"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
-                        Background="White"
+                        Background="DarkCyan"
                         FontSize="18"
                         FontWeight="Bold"
                         Opacity="1"
                         Text="Menu"
                         TextAlignment="Center" />
-                    <Separator Height="0.4" Margin="0,-5,0,0" />
+                    <Separator Height="5" Margin="0,0,0,0" />
                     <!--  TU DODAĆ PRZYCISKI DO STRON  -->
                     <StackPanel>
                         <ui:Button
@@ -241,34 +242,101 @@
                                     FontSize="18"
                                     FontWeight="Bold"
                                     Foreground="White"
-                                    Text="Strona użytkownika" />
+                                    Text="Logowanie" />
+
                             </Grid>
                         </ui:Button>
-                        <Separator Height="0.4" Margin="0,-5,0,0" />
+                        <Separator Height="5" Margin="0,0,0,0" />
+                        <ui:Button
+                            x:Name="UsersButton"
+                            Width="300"
+                            Padding="15,10"
+                            HorizontalContentAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding UsersPageButtonClick}"
+                            MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    Source="/Models/Resources/Icons/UsersPageWhite.png" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="15,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="Zarządzanie kontami" />
+
+                            </Grid>
+                        </ui:Button>
+                        <Separator Height="5" Margin="0,0,0,0" />
+                        <ui:Button
+                            x:Name="LiveForkliftsPage"
+                            Width="300"
+                            Padding="15,10"
+                            HorizontalContentAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding LiveDataPageButtonClick}"
+                            MouseOverBackground="DarkCyan">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    Source="/Models/Resources/Icons/LiveDataWhite.png" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="15,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="Podgląd wózków" />
+
+                            </Grid>
+                        </ui:Button>
+                        <Separator Height="5" Margin="0,0,0,0" />
                         <!--  Tu DODAJ PRZYCISKI  -->
                     </StackPanel>
-                    <StackPanel x:Name="InstallatorPages">
+                    <StackPanel x:Name="InstallatorPages" Visibility="{Binding InstallatorMenuVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibility}}">
                         <TextBlock
                             Margin="0"
                             Padding="15,10"
                             HorizontalAlignment="Stretch"
-                            Background="#FF222830"
+                            Background="DarkCyan"
                             FontSize="18"
                             FontWeight="Bold"
                             Style="{StaticResource TitleStyle}"
                             Text="Panel Instalatora"
                             TextAlignment="Center" />
                         <Separator
-                            Height="0.4"
-                            Margin="0,-5,0,0"
+                            Height="5"
+                            Margin="0,0,0,0"
                             Background="{StaticResource UnactiveBackgroundBrush}" />
                         <ui:Button
                             x:Name="ForkliftManagementPageButton"
+                            Width="300"
+                            Margin="0,0,0,0"
                             Padding="15,10"
                             HorizontalAlignment="Left"
+                            HorizontalContentAlignment="LEft"
                             Background="Transparent"
                             BorderBrush="Transparent"
-                            Command="{Binding ForkliftManagementPageButtonClick}">
+                            Command="{Binding ForkliftManagementPageButtonClick}"
+                            MouseOverBackground="DarkCyan">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto" />

@@ -1,14 +1,221 @@
-﻿<Page x:Class="FMS.Views.LiveForklifsPages.ActualParametersPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ActualParametersPage">
+﻿<Page
+    x:Class="FMS.Views.LiveForklifsPages.ActualParametersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ActualParametersPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
 
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Margin="300,0,0,0" Orientation="Horizontal">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Czas ostatniego odczytu danych:" />
+                <TextBlock
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="{Binding RefreshDate}" />
+            </StackPanel>
+            <Separator
+                Height="4"
+                Margin="0,2,0,0"
+                Background="White" />
+            <StackPanel Margin="300,10,0,0" Orientation="Horizontal">
+                <StackPanel Width="50" />
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja na mapie w osi X:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja na mapie w osi Y:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna pozycja kątowa na mapie:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualne napięcie baterii:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny stan procentowy baterii:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Poziom krytyczny baterii:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna wysokość wideł:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Status czujnika krańcowego wideł:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny nacisk na widły:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Zapisana waga ładunku:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny przechył wzdłuż wózka:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny przechył boczny wózka:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Całkowity dystans przebyty:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualny kąt skrętu koła:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna wartośc jednostki mocy:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Aktualna prędkość wózka:" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.PositionX}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.PositionY}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.PositionR}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.BatteryVoltage}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.BatteryPercentage}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.BatteryCritical}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ActualForksHeight}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ForksHeightLimiter}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.LiveWeight}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.SavedCargoWeight}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.TiltAxis1}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.TiltAxis2}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.OverallDistanceMiliMeters}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.OverallDistanceMeters}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.OverallDistanceKiloMeters}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.ServoAngle}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.CurrentPWM}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                    <TextBlock
+                        FontSize="20"
+                        Foreground="White"
+                        Text="{Binding Data.Speed}" />
+                    <Separator Height="4" Margin="0,2,0,0" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
