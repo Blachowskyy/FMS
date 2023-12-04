@@ -10,12 +10,12 @@ namespace FMS.ViewModels.Main
     public class UsersPageViewModel : BaseViewModel
     {
         #region Variables
-        private User? _editededUser;
+        private User _editededUser;
         public User EditedUser
         {
             get
             {
-                return _editededUser ?? new();
+                return _editededUser;
             }
             set
             {
@@ -62,7 +62,7 @@ namespace FMS.ViewModels.Main
                 .CreateLogger();
             _userDataService = userDataService;
             _userStore = userStore;
-
+            EditedUser = new();
             AddNewUserButtonClick = new RelayCommand(AddNewUser);
             UpdateUserButtonClick = new RelayCommand(UpdateUserData);
             DeleteUserButtonClick = new RelayCommand(DeleteUser);
@@ -158,6 +158,10 @@ namespace FMS.ViewModels.Main
                         bool privilegesCheck = CheckPrivileges(addedUser);
                         if (privilegesCheck)
                         {
+                            if (addedUser.Tag == null || addedUser.Tag == "")
+                            {
+                                addedUser.Tag = "NO TAG";
+                            }
                             await _userDataService.Create(addedUser);
                         }
                     }
@@ -239,6 +243,7 @@ namespace FMS.ViewModels.Main
                 EditedUser ??= new();
                 EditedUser = await _userDataService.Get(Convert.ToInt32(param));
             }
+            RefreshUsers() ;
         }
         #endregion
         #region ICommands declarations

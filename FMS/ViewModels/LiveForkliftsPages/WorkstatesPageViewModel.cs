@@ -1,6 +1,7 @@
 ﻿using FMS.Models.Common;
 using FMS.Models.Main;
 using FMS.ViewModels.Common;
+using Serilog;
 
 namespace FMS.ViewModels.LiveForkliftsPages
 {
@@ -50,7 +51,11 @@ namespace FMS.ViewModels.LiveForkliftsPages
         #region Constructor
         public WorkstatesPageViewModel(Forklift selectedForklift)
         {
-
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("Logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
             SelectedForklift = selectedForklift;
             if (_selectedForklift != null)
             {

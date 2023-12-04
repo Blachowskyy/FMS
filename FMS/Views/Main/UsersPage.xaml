@@ -120,14 +120,14 @@
                             VerticalAlignment="Center"
                             FontSize="24"
                             RevealButtonEnabled="False"
-                            Text="{Binding EditedUser.Password}"
+                            Password="{Binding EditedUser.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextAlignment="Center" />
                         <Separator Height="15" Margin="0,-5,0,0" />
                         <ui:PasswordBox
                             MinWidth="200"
                             VerticalAlignment="Center"
                             FontSize="24"
-                            Text="{Binding CheckPassword}"
+                            Password="{Binding CheckPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextAlignment="Center" />
                         <Separator Height="25" Margin="0,-5,0,0" />
                         <StackPanel Orientation="Horizontal">

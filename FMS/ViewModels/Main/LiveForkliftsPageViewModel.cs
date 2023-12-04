@@ -5,6 +5,7 @@ using FMS.ViewModels.Common;
 using FMS.ViewModels.LiveForkliftsPages;
 using FMS.Views;
 using FMS.Views.LiveForklifsPages;
+using Serilog;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -92,6 +93,11 @@ namespace FMS.ViewModels.Main
         #region Constructor
         public LiveForkliftsPageViewModel(UserStore userStore, List<Forklift> onlineForklifts, ForklfitDataService forklfitDataService)
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("Logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
             _userStore = userStore;
             OnlineForklifts = onlineForklifts ??= [];
             _forkliftDataService = forklfitDataService;
