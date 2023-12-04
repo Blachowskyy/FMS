@@ -114,23 +114,28 @@ namespace FMS.ViewModels.Main
             }
             if (_currentLivePageId == 2)
             {
-                CurrentLivePage = new AutoModeStartupPage(new AutoModeStartupPageViewModel());
+                _selectedForklift ??= new();
+                CurrentLivePage = new AutoModeStartupPage(new AutoModeStartupPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 3)
             {
-                CurrentLivePage = new ErrorsPage(new ErrorsPageViewModel());
+                _selectedForklift ??= new();
+                CurrentLivePage = new ErrorsPage(new ErrorsPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 4)
             {
-                CurrentLivePage = new ForkliftConfigurationPage(new ForkliftConfigurationPageViewModel());
+                _selectedForklift ??= new();
+                CurrentLivePage = new ForkliftConfigurationPage(new ForkliftConfigurationPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 5)
             {
-                CurrentLivePage = new LidarLocPage(new LidarLocPageViewModel());
+                _selectedForklift ??= new();
+                CurrentLivePage = new LidarLocPage(new LidarLocPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 6)
             {
-                CurrentLivePage = new SafetyDataPage(new SafetyDataPageViewModel());
+                _selectedForklift ??= new();
+                CurrentLivePage = new SafetyDataPage(new SafetyDataPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 7)
             {

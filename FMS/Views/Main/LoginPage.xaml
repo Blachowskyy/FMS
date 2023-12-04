@@ -13,11 +13,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibilityConverter" />
-        <conv:NegativeBoolConverter x:Key="NegativeBoolConverter" />
-        <conv:BoolToRedGreenConverter x:Key="BoolToColor" />
-        <conv:BoolToGreyGreenConverter x:Key="BoolToGreyGreen" />
-        <conv:BoolToRedGreyConverter x:Key="BoolToRedGrey" />
-        <conv:BoolToYellowGreenConverter x:Key="BoolToYellowGreen" />
+
     </Page.Resources>
 
     <Grid>
@@ -84,6 +80,7 @@
                         Height="45"
                         MinWidth="100"
                         HorizontalAlignment="Center"
+                        Appearance="Danger"
                         Background="White"
                         Command="{Binding LogoutButtonClick}"
                         CommandParameter="true">

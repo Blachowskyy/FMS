@@ -36,9 +36,51 @@
     <None Remove="Models\Resources\Icons\StatusUnactive.png" />
     <None Remove="Models\Resources\Icons\UpdateBlack.png" />
     <None Remove="Models\Resources\Icons\UsersPageWhite.png" />
+    <None Remove="Models\Resources\Icons\WarningYellow.png" />
+    <None Remove="Models\Resources\Icons\WhiteAutomaticWork.png" />
+    <None Remove="Models\Resources\Icons\WhiteCharging.png" />
+    <None Remove="Models\Resources\Icons\WhiteDiagnosticMode.png" />
+    <None Remove="Models\Resources\Icons\WhiteInitializing.png" />
+    <None Remove="Models\Resources\Icons\WhiteLoad.png" />
+    <None Remove="Models\Resources\Icons\WhiteManualMode.png" />
+    <None Remove="Models\Resources\Icons\WhiteNavRide.png" />
+    <None Remove="Models\Resources\Icons\WhitePalletUnload.png" />
+    <None Remove="Models\Resources\Icons\WhiteStandby.png" />
+    <None Remove="Models\Resources\Icons\WhiteWaitingForChoice.png" />
+    <None Remove="Models\Resources\Icons\WhiteWorkSafety.png" />
     <None Remove="Models\Resources\Icons\WorkstatesPageWhite.png" />
     <None Remove="Models\Resources\Images\backgroundimg1.png" />
     <None Remove="Models\Resources\Images\Logo.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\ActualForksWeightWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\BatteryRed.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\BatteryWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\DistanceWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\ForksHeightWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\PositionWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\PwmWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\RefreshDateWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\RotationWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\SavedWeightWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\SpeedWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\SteeringWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\LiveData\TiltWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\AppErrorWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\ContaminationWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\CpuWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\DeviceErrorWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\EmergencyStopButtonWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\EmergencyZoneRed.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\EncoderWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\ExternalLightWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\IsActiveWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\MonitoringCaseWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\ReducedSpeedZoneYellow.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\SafetyOutputWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\SleepModeWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\SoftStopZoneOrange.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\SpeedGuardWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\StandstillWhite.png" />
+    <None Remove="Models\Resources\ItemsIcons\Safety\VoltageWhite.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -120,6 +162,42 @@
     <Content Include="Models\Resources\Icons\UsersPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Resources\Icons\WarningYellow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteAutomaticWork.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteCharging.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteDiagnosticMode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteInitializing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteLoad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteManualMode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteNavRide.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhitePalletUnload.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteStandby.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteWaitingForChoice.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\Icons\WhiteWorkSafety.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\Resources\Icons\WorkstatesPageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -127,6 +205,96 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\Resources\Images\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\ActualForksWeightWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\BatteryRed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\BatteryWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\DistanceWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\ForksHeightWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\PositionWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\PwmWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\RefreshDateWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\RotationWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\SavedWeightWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\SpeedWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\SteeringWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\LiveData\TiltWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\AppErrorWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\ContaminationWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\CpuWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\DeviceErrorWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\EmergencyStopButtonWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\EmergencyZoneRed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\EncoderWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\ExternalLightWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\IsActiveWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\MonitoringCaseWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\ReducedSpeedZoneYellow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\SafetyOutputWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\SleepModeWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\SoftStopZoneOrange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\SpeedGuardWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\StandstillWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Resources\ItemsIcons\Safety\VoltageWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -184,7 +352,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Models\Resources\ItemsIcons\" />
   </ItemGroup>
 
 </Project>

@@ -2,20 +2,188 @@
     x:Class="FMS.Views.LiveForklifsPages.ErrorsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:FMS.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:liveforkliftspages="clr-namespace:FMS.ViewModels.LiveForkliftsPages"
     xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="ErrorsPage"
+    d:DataContext="{d:DesignInstance Type=liveforkliftspages:ErrorsPageViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <conv:BoolToStatusGreyRedFlipped x:Key="BoolGreyRed" />
+        <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
+    </Page.Resources>
     <Grid>
-        <TextBlock
+        <StackPanel
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            FontSize="36"
-            Foreground="White"
-            Text="ErrorsPage" />
+            Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - odczyt baterii:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - czujnik ciśnienia:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - czujnik wysokości wideł:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - czujnik przechyłu oś 1:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - czujnik przechyłu oś 2:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - manetka przyspieszenia:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu analogowego - sterowanie prędkością CURTIS:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu CAN Open - Scangrid lewy:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu CAN Open - Scangrid prawy:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu CAN Motion - zatrzymanie serwonapędu" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu CAN Motion - ruch serwonapędu:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Błąd modułu CAN Motion - odczyt aktualnej pozycji serwonapędu:" />
+                <Separator Height="8.3" />
+            </StackPanel>
+            <StackPanel Margin="15,0,0,0">
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.BatteryRead, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.PressureSensor, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ForksHeightSensor, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ManualHandleSpeedRegulator, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.CurtisSpeedWriteError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ScangridLeftError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ScangridRightError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoHaltError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoMoveError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoPositionReadError, Converter={StaticResource BoolGreyRed}}" />
+                <Separator Height="5" />
+            </StackPanel>
+            <StackPanel Width="100" Margin="15,0,0,0">
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.BatteryReadErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.BatteryRead, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.PressureSensorErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.PressureSensor, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ForksHeightErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ForksHeightSensor, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.TiltSensorAxis1ErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.TiltSensorAxis2ErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ManualHandleSpeedRegulatorErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ManualHandleSpeedRegulator, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.CurtisSpeedWriteErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.CurtisSpeedWriteError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ScangridLeftErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ScangridLeftError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ScangridRightErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ScangridRightError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ServoHaltErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ServoHaltError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ServoMoveErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ServoMoveError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="Red"
+                    Text="{Binding DisplayedData.ErrorCodes.ServoPositionReadErrorCode}"
+                    Visibility="{Binding DisplayedData.ErrorStatus.ServoPositionReadError, Converter={StaticResource BoolToVisibility}}" />
+                <Separator Height="8.3" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

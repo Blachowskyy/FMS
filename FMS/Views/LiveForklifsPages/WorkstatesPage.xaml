@@ -35,19 +35,19 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Width="50">
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteWaitingForChoice.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteWorkSafety.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteManualMode.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteInitializing.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteDiagnosticMode.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteWorkSafety.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteAutomaticWork.png" />
                     </StackPanel>
                     <StackPanel Margin="10,0,0,0">
                         <Separator Height="13" />
@@ -119,19 +119,19 @@
                 </StackPanel>
                 <StackPanel Margin="70,0,0,0" Orientation="Horizontal">
                     <StackPanel Width="50">
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteStandby.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteNavRide.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteCharging.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteLoad.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhitePalletUnload.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhiteLoad.png" />
                         <Separator Height="5" />
-                        <Image Source="/Models/Resources/Icons/StatusOk.png" />
+                        <Image Source="/Models/Resources/Icons/WhitePalletUnload.png" />
                     </StackPanel>
                     <StackPanel Margin="10,0,0,0">
                         <Separator Height="13" />

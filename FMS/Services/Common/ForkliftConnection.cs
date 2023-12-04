@@ -253,28 +253,28 @@ namespace FMS.Services.Common
                             }
                             if (forkliftScangridsData.Count == 22)
                             {
-                                fork.Data.LeftScangrid.IsActive = Convert.ToBoolean(forkliftSafetyData[0]);
-                                fork.Data.LeftScangrid.SleepModeStatus = Convert.ToBoolean(forkliftSafetyData[1]);
-                                fork.Data.LeftScangrid.VoltageError = Convert.ToBoolean(forkliftSafetyData[2]);
-                                fork.Data.LeftScangrid.ContaminationError = Convert.ToBoolean(forkliftSafetyData[3]);
-                                fork.Data.LeftScangrid.ContaminationWarning = Convert.ToBoolean(forkliftSafetyData[4]);
-                                fork.Data.LeftScangrid.MonitoringCaseCanInputStatus = Convert.ToBoolean(forkliftSafetyData[5]);
-                                fork.Data.LeftScangrid.MonitoringCaseSwitchInputStatus = Convert.ToBoolean(forkliftSafetyData[6]);
-                                fork.Data.LeftScangrid.ResistanceToExternalLightError = Convert.ToBoolean(forkliftSafetyData[7]);
-                                fork.Data.LeftScangrid.ProtectiveFieldStatus = Convert.ToBoolean(forkliftSafetyData[8]);
-                                fork.Data.LeftScangrid.WarningFieldStatus = Convert.ToBoolean(forkliftSafetyData[9]);
-                                fork.Data.LeftScangrid.SafetyOutput = Convert.ToBoolean(forkliftSafetyData[10]);
-                                fork.Data.RightScangrid.IsActive = Convert.ToBoolean(forkliftSafetyData[11]);
-                                fork.Data.RightScangrid.SleepModeStatus = Convert.ToBoolean(forkliftSafetyData[12]);
-                                fork.Data.RightScangrid.VoltageError = Convert.ToBoolean(forkliftSafetyData[13]);
-                                fork.Data.RightScangrid.ContaminationError = Convert.ToBoolean(forkliftSafetyData[14]);
-                                fork.Data.RightScangrid.ContaminationWarning = Convert.ToBoolean(forkliftSafetyData[15]);
-                                fork.Data.RightScangrid.MonitoringCaseCanInputStatus = Convert.ToBoolean(forkliftSafetyData[16]);
-                                fork.Data.RightScangrid.MonitoringCaseSwitchInputStatus = Convert.ToBoolean(forkliftSafetyData[17]);
-                                fork.Data.RightScangrid.ResistanceToExternalLightError = Convert.ToBoolean(forkliftSafetyData[18]);
-                                fork.Data.RightScangrid.ProtectiveFieldStatus = Convert.ToBoolean(forkliftSafetyData[19]);
-                                fork.Data.RightScangrid.WarningFieldStatus = Convert.ToBoolean(forkliftSafetyData[20]);
-                                fork.Data.RightScangrid.SafetyOutput = Convert.ToBoolean(forkliftSafetyData[21]);
+                                fork.Data.LeftScangrid.IsActive = Convert.ToBoolean(forkliftScangridsData[0]);
+                                fork.Data.LeftScangrid.SleepModeStatus = !Convert.ToBoolean(forkliftScangridsData[1]);
+                                fork.Data.LeftScangrid.VoltageError = !Convert.ToBoolean(forkliftScangridsData[2]);
+                                fork.Data.LeftScangrid.ContaminationError = !Convert.ToBoolean(forkliftScangridsData[3]);
+                                fork.Data.LeftScangrid.ContaminationWarning = !Convert.ToBoolean(forkliftScangridsData[4]);
+                                fork.Data.LeftScangrid.MonitoringCaseCanInputStatus = Convert.ToBoolean(forkliftScangridsData[5]);
+                                fork.Data.LeftScangrid.MonitoringCaseSwitchInputStatus = Convert.ToBoolean(forkliftScangridsData[6]);
+                                fork.Data.LeftScangrid.ResistanceToExternalLightError = !Convert.ToBoolean(forkliftScangridsData[7]);
+                                fork.Data.LeftScangrid.ProtectiveFieldStatus = Convert.ToBoolean(forkliftScangridsData[8]);
+                                fork.Data.LeftScangrid.WarningFieldStatus = Convert.ToBoolean(forkliftScangridsData[9]);
+                                fork.Data.LeftScangrid.SafetyOutput = Convert.ToBoolean(forkliftScangridsData[10]);
+                                fork.Data.RightScangrid.IsActive = Convert.ToBoolean(forkliftScangridsData[11]);
+                                fork.Data.RightScangrid.SleepModeStatus = !Convert.ToBoolean(forkliftScangridsData[12]);
+                                fork.Data.RightScangrid.VoltageError = !Convert.ToBoolean(forkliftScangridsData[13]);
+                                fork.Data.RightScangrid.ContaminationError = !Convert.ToBoolean(forkliftScangridsData[14]);
+                                fork.Data.RightScangrid.ContaminationWarning = !Convert.ToBoolean(forkliftScangridsData[15]);
+                                fork.Data.RightScangrid.MonitoringCaseCanInputStatus = Convert.ToBoolean(forkliftScangridsData[16]);
+                                fork.Data.RightScangrid.MonitoringCaseSwitchInputStatus = Convert.ToBoolean(forkliftScangridsData[17]);
+                                fork.Data.RightScangrid.ResistanceToExternalLightError = !Convert.ToBoolean(forkliftScangridsData[18]);
+                                fork.Data.RightScangrid.ProtectiveFieldStatus = Convert.ToBoolean(forkliftScangridsData[19]);
+                                fork.Data.RightScangrid.WarningFieldStatus = Convert.ToBoolean(forkliftScangridsData[20]);
+                                fork.Data.RightScangrid.SafetyOutput = Convert.ToBoolean(forkliftScangridsData[21]);
                             }
                             else
                             {

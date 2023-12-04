@@ -2,20 +2,128 @@
     x:Class="FMS.Views.LiveForklifsPages.AutoModeStartupPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:FMS.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:liveforkliftspages="clr-namespace:FMS.ViewModels.LiveForkliftsPages"
     xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="AutoModeStartupPage"
+    d:DataContext="{d:DesignInstance Type=liveforkliftspages:AutoModeStartupPageViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <conv:BoolToStatusGreenRed x:Key="BoolGreenRed" />
+        <conv:BoolToVIsibilityConverter x:Key="BoolToVisibility" />
+    </Page.Resources>
     <Grid>
-        <TextBlock
+        <StackPanel
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            FontSize="36"
-            Foreground="White"
-            Text="AutoModeStartupPage" />
+            Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połaczenia z bramą startową routera:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z modułem lokalizacyjnym SICK LIdarLoc:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z sterownikiem PLC:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z bramą ethernet sterownika bezpieczeństwa:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z bramą MODBUS sterownika bezpieczeństwa:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z lewym skanerem bezpieczeństwa SICK MicroScan3:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z prawym skanerem bezpieczeństwa SICK MicroScan3:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z bramą wyjściową routera:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test połączenia z systemem zarządzania:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Całkowity wynik testu połączeń ethernet:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test odczytu danych z skanerów SICK ScanGrid2:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test pracy serwonapędu:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test napędu:" />
+                <Separator Height="8.3" />
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Test kontroli wideł:" />
+                <Separator Height="8.3" />
+            </StackPanel>
+            <StackPanel Margin="15,0,0,0">
+                <Image Height="30" Source="{Binding DiplayedData.GatewayStart, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.LidarLoc, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.Plc, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.FlexiGatewayEthernet, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.FlexiGatewayModbus, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.SafetyScannerLeft, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.SafetyScannerRight, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.GatewayEnd, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.Fms, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.OverallResult, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.ScangridsTest, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.ServoTest, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.CurtisTest, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+                <Image Height="30" Source="{Binding DiplayedData.ForksTest, Converter={StaticResource BoolGreenRed}}" />
+                <Separator Height="5" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
