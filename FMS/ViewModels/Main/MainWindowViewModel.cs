@@ -297,7 +297,7 @@ namespace FMS.ViewModels.Main
         {
             Log.Information("Clicked live data page button...");
             _connectedForklifts ??= [];
-            CurrentPage = new LiveForklfitsPage(new LiveForkliftsPageViewModel(_userStore, _connectedForklifts));
+            CurrentPage = new LiveForklfitsPage(new LiveForkliftsPageViewModel(_userStore, _connectedForklifts, _forkliftDataService));
         }
         #endregion
         #region ICommand declarations

@@ -1,6 +1,8 @@
-﻿namespace FMS.Models.Common
+﻿using FMS.Models.Main;
+
+namespace FMS.Models.Common
 {
-    public class TebConfigData : CommonBaseModel
+    public class TebConfigData : BaseModel
     {
         #region Variables
         private string? _forwardMaxVelocity;

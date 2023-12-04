@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using FMS.Models.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 
 namespace FMS.Models.Main
@@ -72,6 +73,19 @@ namespace FMS.Models.Main
             {
                 _name = value;
                 OnPropertyChanged(nameof(Name));
+            }
+        }
+        private TebConfigData? _backedUpTebConfig;
+        public TebConfigData BackedUpTebConfig
+        {
+            get
+            {
+                return _backedUpTebConfig ??= new();
+            }
+            set
+            {
+                _backedUpTebConfig = value;
+                OnPropertyChanged(nameof(BackedUpTebConfig));
             }
         }
         #endregion

@@ -87,12 +87,14 @@ namespace FMS.ViewModels.Main
             }
         }
         private readonly UserStore? _userStore;
+        private readonly ForklfitDataService _forkliftDataService;
         #endregion
         #region Constructor
-        public LiveForkliftsPageViewModel(UserStore userStore, List<Forklift> onlineForklifts)
+        public LiveForkliftsPageViewModel(UserStore userStore, List<Forklift> onlineForklifts, ForklfitDataService forklfitDataService)
         {
             _userStore = userStore;
             OnlineForklifts = onlineForklifts ??= [];
+            _forkliftDataService = forklfitDataService;
             SelectedForklift = new Forklift { Name = "Wybierz wózek..." };
             ActualParametersPageButtonClick = new RelayCommand(ShowActualParametersPage);
             AutoModeStartupPageButtonClick = new RelayCommand(ShowAutoModeStartupPage);
@@ -125,7 +127,7 @@ namespace FMS.ViewModels.Main
             if (_currentLivePageId == 4)
             {
                 _selectedForklift ??= new();
-                CurrentLivePage = new ForkliftConfigurationPage(new ForkliftConfigurationPageViewModel(_selectedForklift));
+                CurrentLivePage = new ForkliftConfigurationPage(new ForkliftConfigurationPageViewModel(_selectedForklift, _forkliftDataService));
             }
             if (_currentLivePageId == 5)
             {
