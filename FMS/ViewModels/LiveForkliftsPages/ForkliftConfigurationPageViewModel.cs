@@ -2,6 +2,8 @@
 using FMS.Models.Main;
 using FMS.Services.Common.DataServices;
 using FMS.ViewModels.Common;
+using Microsoft.VisualBasic.Logging;
+using Serilog;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.LiveForkliftsPages
@@ -54,7 +56,11 @@ namespace FMS.ViewModels.LiveForkliftsPages
         #region Constructor
         public ForkliftConfigurationPageViewModel(Forklift selectedForklift, ForklfitDataService forklfitDataService)
         {
-
+            Serilog.Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("Logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
             SelectedForklift = selectedForklift;
             _forkliftDataService = forklfitDataService;
             /*if (_selectedForklift != null)
@@ -113,7 +119,27 @@ namespace FMS.ViewModels.LiveForkliftsPages
         }
         private void SendTebConfigToForklift(object? param)
         {
-
+            if (_selectedForklift != null && _displayedTebConfig != null)
+            {
+                SelectedForklift.Data.TebConfig = _displayedTebConfig;
+                SelectedForklift.Data.TebConfig.SaveSettings = true;
+                int sendTime = DateTime.Now.Second;
+                while (!_selectedForklift.Data.ActualTebConfig.SaveSettings)
+                {
+                    if ((sendTime - DateTime.Now.Second) > 10)
+                    {
+                        SelectedForklift.Data.TebConfig.SaveSettings = false;
+                        Serilog.Log.Error("Timeout error while sending teb config");
+                        break;
+                    }
+                    if (_selectedForklift.Data.ActualTebConfig.SaveSettings )
+                    {
+                        SelectedForklift.Data.TebConfig.SaveSettings = false;
+                        Serilog.Log.Information("Teb config sended successfully!");
+                        break;
+                    }
+                }
+            }
         }
         #endregion
         #region ICommands declarations
