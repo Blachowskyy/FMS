@@ -106,7 +106,7 @@ namespace FMS.ViewModels.Main
             bool verify = true;
             if (_currentForklfit != null)
             {
-                if (_currentForklfit.IpAdress == null)
+                if (_currentForklfit.IpAddress == null)
                 {
                     verify = false;
                     Log.Error("Forklift IP Adress is null");
@@ -132,6 +132,7 @@ namespace FMS.ViewModels.Main
                 verify = false;
                 Log.Error("Forklift is null");
             }
+
             return verify;
         }
         private void ConnectionStatusIconsSteering()
@@ -256,12 +257,12 @@ namespace FMS.ViewModels.Main
         {
             if (_currentForklfit != null)
             {
-                if (!string.IsNullOrEmpty(_currentForklfit.IpAdress))
+                if (!string.IsNullOrEmpty(_currentForklfit.IpAddress))
                 {
                     Ping pingSender = new();
                     try
                     {
-                        PingReply reply = pingSender.Send(_currentForklfit.IpAdress);
+                        PingReply reply = pingSender.Send(_currentForklfit.IpAddress);
                         if (reply.Status == IPStatus.Success)
                         {
                             Log.Information("Ping successfull: " + reply.RoundtripTime.ToString());
@@ -278,7 +279,7 @@ namespace FMS.ViewModels.Main
                 }
                 else
                 {
-                    Log.Warning("Something wrong with Ip address: " + _currentForklfit.IpAdress.ToString());
+                    Log.Warning("Something wrong with Ip address: " + _currentForklfit.IpAddress.ToString());
                 }
             }
             else

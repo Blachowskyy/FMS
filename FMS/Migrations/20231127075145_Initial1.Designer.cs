@@ -26,7 +26,7 @@ namespace FMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IpAdress")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

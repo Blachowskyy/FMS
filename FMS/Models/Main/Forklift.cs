@@ -9,7 +9,7 @@ namespace FMS.Models.Main
         #region Variables
         #region Connections
         private string? _ipAddress;
-        public string IpAdress
+        public string IpAddress
         {
             get
             {
@@ -18,7 +18,7 @@ namespace FMS.Models.Main
             set
             {
                 _ipAddress = value;
-                OnPropertyChanged(nameof(IpAdress));
+                OnPropertyChanged(nameof(IpAddress));
             }
         }
         private int _port;
@@ -45,6 +45,19 @@ namespace FMS.Models.Main
             {
                 _lidarLocAddress = value;
                 OnPropertyChanged(nameof(LidarLocAddress));
+            }
+        }
+        private string? _visionaryAddress;
+        public string VisionaryAddress
+        {
+            get
+            {
+                return _visionaryAddress ?? string.Empty;
+            }
+            set
+            {
+                _visionaryAddress = value;
+                OnPropertyChanged(nameof(VisionaryAddress));
             }
         }
         #endregion

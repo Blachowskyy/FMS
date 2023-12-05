@@ -1,4 +1,5 @@
-﻿using FMS.Models.Main;
+﻿using FMS.Models.Common;
+using FMS.Models.Main;
 using Microsoft.EntityFrameworkCore;
 
 namespace FMS.Services.Database
@@ -11,9 +12,15 @@ namespace FMS.Services.Database
         public DbSet<JobStepType> JobStepTypes { get; set; }
         public DbSet<JobStep> JobSteps { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<TebConfigData> tebConfigDatas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TebConfigData>()
+            .HasOne(t => t.Forklift)
+            .WithOne(f => f.BackedUpTebConfig)
+            .HasForeignKey<TebConfigData>(t => t.ForkliftId);
+
             base.OnModelCreating(modelBuilder);
         }
     }

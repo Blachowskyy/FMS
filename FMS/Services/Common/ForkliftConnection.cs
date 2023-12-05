@@ -21,19 +21,18 @@ namespace FMS.Services.Common
             fork.Client ??= new TcpClient();
             try
             {
-                await fork.Client.ConnectAsync(fork.IpAdress, fork.Port);
+                await fork.Client.ConnectAsync(fork.IpAddress, fork.Port);
                 if (fork.Client.Connected)
                 {
                     fork.IsConnected = true;
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (SocketException ex)
             {
                 Log.Fatal("Exception while connecting to Forklift server: " + fork.Name + ": " + ex.Message);
                 return false;
             }
-
         }
         public async Task<bool> Reconnect(Forklift fork, int retryInterval = 5000, int maxRetries = 5)
         {

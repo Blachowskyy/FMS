@@ -102,6 +102,17 @@
                             Style="{StaticResource TitleStyle}"
                             Text="Adres LidarLoc"
                             TextAlignment="Left" />
+                        <Separator Height="15" Margin="0,0,0,0" />
+                        <TextBlock
+                            Margin="0"
+                            Padding="15,10"
+                            HorizontalAlignment="Stretch"
+                            Background="Transparent"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Style="{StaticResource TitleStyle}"
+                            Text="Adres Visionary T-mini"
+                            TextAlignment="Left" />
                     </StackPanel>
                     <StackPanel Height="300" Margin="20,23,0,0">
                         <TextBox
@@ -115,7 +126,7 @@
                             MinWidth="200"
                             VerticalAlignment="Center"
                             FontSize="24"
-                            Text="{Binding CurrentForklift.IpAdress}"
+                            Text="{Binding CurrentForklift.IpAddress}"
                             TextAlignment="Center" />
                         <Separator Height="15" Margin="0,-5,0,0" />
                         <TextBox
@@ -130,6 +141,13 @@
                             VerticalAlignment="Center"
                             FontSize="24"
                             Text="{Binding CurrentForklift.LidarLocAddress}"
+                            TextAlignment="Center" />
+                        <Separator Height="15" Margin="0,-5,0,0" />
+                        <TextBox
+                            MinWidth="200"
+                            VerticalAlignment="Center"
+                            FontSize="24"
+                            Text="{Binding CurrentForklift.VisionaryAddress}"
                             TextAlignment="Center" />
                     </StackPanel>
                 </StackPanel>

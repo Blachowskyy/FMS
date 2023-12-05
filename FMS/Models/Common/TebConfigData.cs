@@ -5,6 +5,8 @@ namespace FMS.Models.Common
     public class TebConfigData : BaseModel
     {
         #region Variables
+        public int ForkliftId { get; set; }
+        public Forklift? Forklift { get; set; }
         private string? _forwardMaxVelocity;
         public string ForwardMaxVelocity
         {

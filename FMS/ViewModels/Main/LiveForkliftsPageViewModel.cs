@@ -132,7 +132,7 @@ namespace FMS.ViewModels.Main
             if (_currentLivePageId == 5)
             {
                 _selectedForklift ??= new();
-                CurrentLivePage = new LidarLocPage(new LidarLocPageViewModel(_selectedForklift));
+                CurrentLivePage = new SickPage(new SickPageViewModel(_selectedForklift));
             }
             if (_currentLivePageId == 6)
             {

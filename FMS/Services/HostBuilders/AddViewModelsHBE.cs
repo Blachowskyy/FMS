@@ -19,7 +19,7 @@ namespace FMS.Services.HostBuilders
                 services.AddTransient<ActualParametersPageViewModel>();
                 services.AddTransient<AutoModeStartupPageViewModel>();
                 services.AddTransient<ErrorsPageViewModel>();
-                services.AddTransient<LidarLocPageViewModel>();
+                services.AddTransient<SickPageViewModel>();
                 services.AddTransient<SafetyDataPageViewModel>();
                 services.AddTransient<ForkliftConfigurationPageViewModel>();
                 services.AddTransient<SafetyDataPageViewModel>();

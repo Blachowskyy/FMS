@@ -5,17 +5,417 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FMS.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="ForkliftConfigurationPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="36"
-            Foreground="White"
-            Text="ForkliftConfigPage" />
+        <TabControl>
+            <!--#region  Teb config tab-->
+            <TabItem Header="TEB Local planner settings">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Nazwa parametru:" />
+                        <Separator Height="7" BorderBrush="White" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalna prędkość poruszania się do przodu" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalna prędkość poruszania się do tyłu" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalna prędkość kątowa" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalne przyspieszenie liniowe" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalne przyspieszenie kątowe" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalny promień skrętu" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Rozstaw osi pojazdu" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalna tolerancja osiągnięcia celu w osiach X i Y " />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Maksymalna tolerancja kątowa osiągnięcia celu" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Minimalny dystans od obiektów" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Obszar poszerzenia przeszkód statycznych" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Obszar poszerzenia przeszkód dynamicznych" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Parametr DTRef" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Parametr DTHysteresis" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Włącz wykrywanie dynamicznych przeszkód" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Włącz wykrywanie przeszkód mapy kosztów" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Zezwól na ruch oscylacyjny w celach recovery" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="Zezwól na inicjację ruchem wstecznym" />
+                        <Separator Height="7" />
+
+                    </StackPanel>
+                    <StackPanel Margin="5,0,0,0" HorizontalAlignment="Center">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Min:" />
+                        <Separator Height="7" BorderBrush="White" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="-10.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.001" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.001" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.01" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.002" />
+                        <Separator Height="7" />
+
+
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="" />
+                        <Separator Height="5" BorderBrush="White" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="50.0"
+                            Minimum="0.0"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="2.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="10.0"
+                            Minimum="-10.0"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="10.0"
+                            Minimum="0.001"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="360.0"
+                            Minimum="0.001"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="10.0"
+                            Minimum="0.0"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="15.0"
+                            Minimum="0.0"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="15.0"
+                            Minimum="0.0"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="2.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="1.0"
+                            Minimum="0.01"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="4.5" />
+                        <Slider
+                            Width="300"
+                            Cursor="Hand"
+                            IsSnapToTickEnabled="True"
+                            Maximum="0.5"
+                            Minimum="0.002"
+                            TickFrequency="1"
+                            TickPlacement="TopLeft" />
+                        <Separator Height="2.5" />
+                    </StackPanel>
+                    <StackPanel Margin="5,0,0,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Max:" />
+                        <Separator Height="7" BorderBrush="White" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="100.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="100.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="100.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="100.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="100.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="50.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="10.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="10.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="360" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="10.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="15.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="15.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="1.0" />
+                        <Separator Height="7" />
+                        <TextBlock
+                            FontSize="18"
+                            Foreground="White"
+                            Text="0.5" />
+                        <Separator Height="7" />
+
+
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <!--#endregion-->
+        </TabControl>
     </Grid>
 </Page>

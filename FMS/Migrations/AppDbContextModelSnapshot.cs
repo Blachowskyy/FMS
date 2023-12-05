@@ -46,6 +46,9 @@ namespace FMS.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ForkliftId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ForwardMaxVelocity")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -96,7 +99,10 @@ namespace FMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TebConfigData");
+                    b.HasIndex("ForkliftId")
+                        .IsUnique();
+
+                    b.ToTable("tebConfigDatas");
                 });
 
             modelBuilder.Entity("FMS.Models.Main.Forklift", b =>
@@ -105,10 +111,7 @@ namespace FMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BackedUpTebConfigId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("IpAdress")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -126,9 +129,11 @@ namespace FMS.Migrations
                     b.Property<DateTime>("RegistrstationDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.Property<string>("VisionaryAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("BackedUpTebConfigId");
+                    b.HasKey("Id");
 
                     b.ToTable("Forklifts");
                 });
@@ -283,15 +288,15 @@ namespace FMS.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FMS.Models.Main.Forklift", b =>
+            modelBuilder.Entity("FMS.Models.Common.TebConfigData", b =>
                 {
-                    b.HasOne("FMS.Models.Common.TebConfigData", "BackedUpTebConfig")
-                        .WithMany()
-                        .HasForeignKey("BackedUpTebConfigId")
+                    b.HasOne("FMS.Models.Main.Forklift", "Forklift")
+                        .WithOne("BackedUpTebConfig")
+                        .HasForeignKey("FMS.Models.Common.TebConfigData", "ForkliftId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BackedUpTebConfig");
+                    b.Navigation("Forklift");
                 });
 
             modelBuilder.Entity("FMS.Models.Main.JobStep", b =>
@@ -317,6 +322,12 @@ namespace FMS.Migrations
                     b.Navigation("JobStepLocation");
 
                     b.Navigation("JobType");
+                });
+
+            modelBuilder.Entity("FMS.Models.Main.Forklift", b =>
+                {
+                    b.Navigation("BackedUpTebConfig")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FMS.Models.Main.Job", b =>

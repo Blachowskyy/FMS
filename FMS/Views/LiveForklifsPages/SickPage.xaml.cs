@@ -6,9 +6,9 @@ namespace FMS.Views.LiveForklifsPages
     /// <summary>
     /// Logika interakcji dla klasy LidarLocPage.xaml
     /// </summary>
-    public partial class LidarLocPage : Page
+    public partial class SickPage : Page
     {
-        public LidarLocPage(LidarLocPageViewModel viewModel)
+        public SickPage(SickPageViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

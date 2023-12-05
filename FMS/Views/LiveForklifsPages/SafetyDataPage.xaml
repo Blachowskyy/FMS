@@ -38,7 +38,7 @@
                         </StackPanel>
                         <StackPanel Margin="15,0,0,0">
                             <Separator Height="5" />
-                            <TextBlock FontSize="20" Text="Status Głównego modułu bezpieczeństwa:" />
+                            <TextBlock FontSize="20" Text="Status głównego modułu bezpieczeństwa:" />
                             <Separator Height="14" />
                             <TextBlock FontSize="20" Text="Status enkodera bezpieczeńtwa:" />
                             <Separator Height="14" />

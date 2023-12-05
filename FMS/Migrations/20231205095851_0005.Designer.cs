@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FMS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231204142826_0003")]
-    partial class _0003
+    [Migration("20231205095851_0005")]
+    partial class _0005
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

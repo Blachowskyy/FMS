@@ -32,8 +32,8 @@ namespace FMS.Services.HostBuilders
                 new ErrorsPage(s.GetRequiredService<ErrorsPageViewModel>()));
                 services.AddSingleton<ForkliftConfigurationPage>(s =>
                 new ForkliftConfigurationPage(s.GetRequiredService<ForkliftConfigurationPageViewModel>()));
-                services.AddSingleton<LidarLocPage>(s =>
-                new LidarLocPage(s.GetRequiredService<LidarLocPageViewModel>()));
+                services.AddSingleton<SickPage>(s =>
+                new SickPage(s.GetRequiredService<SickPageViewModel>()));
                 services.AddSingleton<SafetyDataPage>(s =>
                 new SafetyDataPage(s.GetRequiredService<SafetyDataPageViewModel>()));
                 services.AddSingleton<WorkstatesPage>(s =>
