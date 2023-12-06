@@ -1,6 +1,7 @@
 ﻿using FMS.Models.Common;
 using FMS.Models.Main;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace FMS.Services.Database
 {
@@ -13,12 +14,17 @@ namespace FMS.Services.Database
         public DbSet<JobStep> JobSteps { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<TebConfigData> tebConfigDatas { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies(); // Dodaj tę linijkę
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.Entity<Forklift>()
-            .HasOne(t => t.BackedUpTebConfig)
-            .WithOne(f => f.Forklift)
+            .HasOne(f => f.BackedUpTebConfig)
+            .WithOne(t => t.Forklift)
             .HasForeignKey<TebConfigData>(t => t.ForkliftId);
 
             base.OnModelCreating(modelBuilder);
