@@ -226,49 +226,55 @@ namespace FMS.ViewModels.Main
         }
         private async void ConnectToForklifts()
         {
-            _readedForklifts ??= await _forkliftDataService.GetAll();
-            foreach (Forklift fork in _readedForklifts)
+            try
             {
-                if (!fork.IsConnected)
+                _readedForklifts ??= await _forkliftDataService.GetAll();
+                foreach (Forklift fork in _readedForklifts)
                 {
-                    await Task.Run(() => { Task<bool> connect = _forkliftConnectionService.Connect(fork); });
-                    await Task.Delay(100);
-                }
-                if (fork.Client.Connected)
-                {
-                    fork.Data ??= new();
-                    await Task.Run(() =>
+                    if (!fork.IsConnected)
                     {
-                        Task communication = _forkliftConnectionService.HandleDataExchange(fork);
-                    });
-                    if (_connectedForklifts != null)
+                        await Task.Run(() => { Task<bool> connect = _forkliftConnectionService.Connect(fork); });
+                        await Task.Delay(100);
+                    }
+                    if (fork.Client.Connected)
                     {
-                        if (_connectedForklifts.Count > 0)
+                        fork.Data ??= new();
+                        await Task.Run(() =>
                         {
-                            int lenghtCheck = _connectedForklifts.Count;
-                            if (lenghtCheck >= fork.Id)
+                            Task communication = _forkliftConnectionService.HandleDataExchange(fork);
+                        });
+                        if (_connectedForklifts != null)
+                        {
+                            if (_connectedForklifts.Count > 0)
                             {
-                                if (_connectedForklifts.ElementAt(fork.Id - 1) == null)
+                                int lenghtCheck = _connectedForklifts.Count;
+                                if (lenghtCheck >= fork.Id)
                                 {
-                                    _connectedForklifts.Insert(fork.Id, fork);
+                                    if (_connectedForklifts.ElementAt(fork.Id - 1) == null)
+                                    {
+                                        _connectedForklifts.Insert(fork.Id, fork);
+                                    }
+                                }
+                                else
+                                {
+                                    _connectedForklifts.Add(fork);
                                 }
                             }
-                            else
-                            {
-                                _connectedForklifts.Add(fork);
-                            }
+
+                        }
+                        else
+                        {
+                            _connectedForklifts = [];
+                            ConnectedForklifts.Add(fork);
                         }
 
                     }
-                    else
-                    {
-                        _connectedForklifts = [];
-                        ConnectedForklifts.Add(fork);
-                    }
-
                 }
             }
-
+            catch (Exception ex)
+            {
+                Log.Error("Error while trying to connect to forklift: " + ex.Message);
+            }
         }
         #endregion
         #region Buttons logic

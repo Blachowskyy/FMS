@@ -7,7 +7,6 @@
     xmlns:liveforkliftspages="clr-namespace:FMS.ViewModels.LiveForkliftsPages"
     xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wfi="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
     Title="LidarLocPage"
     d:DataContext="{d:DesignInstance Type=liveforkliftspages:SickPageViewModel}"
     d:DesignHeight="450"
@@ -37,9 +36,7 @@
             <TabItem Header="SMET">
                 <StackPanel>
                     <Button Command="{Binding OpenSmetButtonClick}" Content="Open smet" />
-                    <wfi:WindowsXamlHost Name="SMET" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        
-                    </wfi:WindowsXamlHost>
+
                 </StackPanel>
             </TabItem>
         </TabControl>

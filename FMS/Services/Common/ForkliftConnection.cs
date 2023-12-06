@@ -1,6 +1,7 @@
 ﻿using FMS.Models.Main;
 using FMS.Services.Common.Interfaces;
 using Serilog;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
@@ -16,12 +17,32 @@ namespace FMS.Services.Common
                .WriteTo.File("Logs/myapp.txt", rollingInterval: RollingInterval.Day)
                .CreateLogger();
         }
-        public async Task<bool> Connect(Forklift fork)
+        public async Task<bool> IsForkliftAvaible(string ipAddress)
         {
-            fork.Client ??= new TcpClient();
             try
             {
-                await fork.Client.ConnectAsync(fork.IpAddress, fork.Port);
+                var ping = new Ping();
+                var reply = await ping.SendPingAsync(ipAddress);
+                return reply.Status == IPStatus.Success;
+            }
+            catch (PingException ex)
+            {
+                Log.Error("Forklift connection ping exception: " + ex.Message);
+                return false;
+            }
+        }
+        public async Task<bool> Connect(Forklift fork)
+        {
+            try
+            {
+                if (!await IsForkliftAvaible(fork.IpAddress))
+                {
+                    return false;
+                }
+                fork.Client ??= new TcpClient();
+
+                var cancellationTokenSource = new CancellationTokenSource(5000);
+                 await fork.Client.ConnectAsync(fork.IpAddress, fork.Port, cancellationTokenSource.Token);
                 if (fork.Client.Connected)
                 {
                     fork.IsConnected = true;
@@ -29,6 +50,11 @@ namespace FMS.Services.Common
                 return true;
             }
             catch (SocketException ex)
+            {
+                Log.Fatal("Exception while connecting to Forklift server: " + fork.Name + ": " + ex.SocketErrorCode + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
             {
                 Log.Fatal("Exception while connecting to Forklift server: " + fork.Name + ": " + ex.Message);
                 return false;
