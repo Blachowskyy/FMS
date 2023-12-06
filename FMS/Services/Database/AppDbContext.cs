@@ -16,9 +16,9 @@ namespace FMS.Services.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TebConfigData>()
-            .HasOne(t => t.Forklift)
-            .WithOne(f => f.BackedUpTebConfig)
+            modelBuilder.Entity<Forklift>()
+            .HasOne(t => t.BackedUpTebConfig)
+            .WithOne(f => f.Forklift)
             .HasForeignKey<TebConfigData>(t => t.ForkliftId);
 
             base.OnModelCreating(modelBuilder);
