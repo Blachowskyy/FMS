@@ -1,157 +1,34 @@
 ﻿using FMS.Models.Common;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 
 namespace FMS.Models.Main
 {
-    public class Forklift : BaseModel
+    public class Forklift
     {
-        #region Variables
-        #region Connections
-        private string? _ipAddress;
-        public string IpAddress
-        {
-            get
-            {
-                return _ipAddress ?? string.Empty;
-            }
-            set
-            {
-                _ipAddress = value;
-                OnPropertyChanged(nameof(IpAddress));
-            }
-        }
-        private int _port;
-        public int Port
-        {
-            get
-            {
-                return _port;
-            }
-            set
-            {
-                _port = value;
-                OnPropertyChanged(nameof(Port));
-            }
-        }
-        private string? _lidarLocAddress;
-        public string LidarLocAddress
-        {
-            get
-            {
-                return _lidarLocAddress ?? string.Empty;
-            }
-            set
-            {
-                _lidarLocAddress = value;
-                OnPropertyChanged(nameof(LidarLocAddress));
-            }
-        }
-        private string? _visionaryAddress;
-        public string VisionaryAddress
-        {
-            get
-            {
-                return _visionaryAddress ?? string.Empty;
-            }
-            set
-            {
-                _visionaryAddress = value;
-                OnPropertyChanged(nameof(VisionaryAddress));
-            }
-        }
-        #endregion
-        #region Properties
-        private DateTime? _registationDate;
-        public DateTime RegistrstationDate
-        {
-            get
-            {
-                return _registationDate ?? DateTime.Now;
-            }
-            set
-            {
-                _registationDate = value;
-                OnPropertyChanged(nameof(RegistrstationDate));
-            }
-        }
-        private string? _name;
-        public string Name
-        {
-            get
-            {
-                return _name ?? "default";
-            }
-            set
-            {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
-        private TebConfigData? _backedUpTebConfig;
-        public TebConfigData BackedUpTebConfig
-        {
-            get
-            {
-                return _backedUpTebConfig ??= new();
-            }
-            set
-            {
-                _backedUpTebConfig = value;
-                OnPropertyChanged(nameof(BackedUpTebConfig));
-            }
-        }
-        #endregion
-        #region Not Mapped to database
+        [Key][DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
+        public string? Name { get; set; }
+        [Required]
+        public int Port { get; set; }
+        [Required]
+        public string? ForkliftAddress { get; set; }
+        public string? LidarLocAddress { get; set; }
+        public string? VisionaryAddress { get; set; }
+        public DateTime RegistrationDate { get; set; }
+        public TebConfigData? BackedUpTebConfig { get; set; }
         [NotMapped]
-        private ForkliftData? _data;
+        public TcpClient? Client { get; set; }
         [NotMapped]
-        public ForkliftData Data
+        public ForkliftData? Data { get; set; }
+        [NotMapped]
+        public bool IsConnected { get; set; }
+        public Forklift()
         {
-            get
-            {
-                _data ??= new ForkliftData();
-                return _data;
-            }
-            set
-            {
-                _data = value;
-                OnPropertyChanged(nameof(Data));
-            }
+            Data = new();
+            Client = new();
         }
-        [NotMapped]
-        private bool _isConnected;
-        [NotMapped]
-        public bool IsConnected
-        {
-            get
-            {
-                return _isConnected;
-            }
-            set
-            {
-                _isConnected = value;
-                OnPropertyChanged(nameof(IsConnected));
-            }
-        }
-        [NotMapped]
-        private TcpClient? _client;
-        [NotMapped]
-        public TcpClient Client
-        {
-            get
-            {
-                _client ??= new TcpClient();
-                return _client;
-            }
-            set
-            {
-                _client = value;
-                OnPropertyChanged(nameof(Client));
-            }
-        }
-
-        #endregion
-        #endregion
     }
 }

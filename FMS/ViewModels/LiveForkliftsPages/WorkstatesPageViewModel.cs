@@ -70,20 +70,20 @@ namespace FMS.ViewModels.LiveForkliftsPages
                 {
                     CurrentWorkstates tmp = new()
                     {
-                        S01 = _selectedForklift.Data.ActualWorkstates.S01,
-                        S02 = _selectedForklift.Data.ActualWorkstates.S02,
-                        S03 = _selectedForklift.Data.ActualWorkstates.S03,
-                        S1 = _selectedForklift.Data.ActualWorkstates.S1,
-                        S2 = _selectedForklift.Data.ActualWorkstates.S2,
-                        S3 = _selectedForklift.Data.ActualWorkstates.S3,
-                        S4 = _selectedForklift.Data.ActualWorkstates.S4,
-                        S40 = _selectedForklift.Data.ActualWorkstates.S40,
-                        S41 = _selectedForklift.Data.ActualWorkstates.S41,
-                        S42 = _selectedForklift.Data.ActualWorkstates.S42,
-                        S43 = _selectedForklift.Data.ActualWorkstates.S43,
-                        S44 = _selectedForklift.Data.ActualWorkstates.S44,
-                        S45 = _selectedForklift.Data.ActualWorkstates.S45,
-                        S46 = _selectedForklift.Data.ActualWorkstates.S46
+                        S01 = _selectedForklift.Data.ActiveWorkstates.S01,
+                        S02 = _selectedForklift.Data.ActiveWorkstates.S02,
+                        S03 = _selectedForklift.Data.ActiveWorkstates.S03,
+                        S1 = _selectedForklift.Data.ActiveWorkstates.S1,
+                        S2 = _selectedForklift.Data.ActiveWorkstates.S2,
+                        S3 = _selectedForklift.Data.ActiveWorkstates.S3,
+                        S4 = _selectedForklift.Data.ActiveWorkstates.S4,
+                        S40 = _selectedForklift.Data.ActiveWorkstates.S40,
+                        S41 = _selectedForklift.Data.ActiveWorkstates.S41,
+                        S42 = _selectedForklift.Data.ActiveWorkstates.S42,
+                        S43 = _selectedForklift.Data.ActiveWorkstates.S43,
+                        S44 = _selectedForklift.Data.ActiveWorkstates.S44,
+                        S45 = _selectedForklift.Data.ActiveWorkstates.S45,
+                        S46 = _selectedForklift.Data.ActiveWorkstates.S46
                     };
                     Dataset = tmp;
                     await Task.Delay(100);

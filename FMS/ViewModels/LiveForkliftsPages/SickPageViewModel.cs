@@ -1,5 +1,4 @@
-﻿using FMS.Models.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.ViewModels.Common;
 
 namespace FMS.ViewModels.LiveForkliftsPages
@@ -27,11 +26,11 @@ namespace FMS.ViewModels.LiveForkliftsPages
         {
 
             SelectedForklift = selectedForklift;
-            
+
         }
         #endregion
         #region Program logic
-        
+
         #endregion
     }
 }

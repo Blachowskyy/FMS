@@ -9,7 +9,6 @@ using Serilog;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Wpf.Ui.Mvvm.Services;
 
 namespace FMS.ViewModels.Main
 {
@@ -61,7 +60,7 @@ namespace FMS.ViewModels.Main
         {
             get
             {
-                return _currentUser ??= new User();
+                return _currentUser ??= new();
             }
             set
             {
@@ -199,19 +198,19 @@ namespace FMS.ViewModels.Main
         }
         private void SetMenuVisibility()
         {
-            if (_userStore.CurrentUser.Client)
+            if (_userStore.CurrentUser.IsClient)
             {
                 ClientMenuVisible = true;
                 InstallatorMenuVisible = false;
                 AdminMenuVisible = false;
             }
-            else if (_userStore.CurrentUser.Installator)
+            else if (_userStore.CurrentUser.IsInstallator)
             {
                 ClientMenuVisible = true;
                 InstallatorMenuVisible = true;
                 AdminMenuVisible = false;
             }
-            else if (_userStore.CurrentUser.Admin)
+            else if (_userStore.CurrentUser.IsAdmin)
             {
                 ClientMenuVisible = true;
                 InstallatorMenuVisible = true;

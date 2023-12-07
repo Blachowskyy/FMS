@@ -3,6 +3,7 @@ using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
 using FMS.ViewModels.Common;
 using Serilog;
+using System.Diagnostics.Tracing;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.Main
@@ -41,7 +42,7 @@ namespace FMS.ViewModels.Main
         {
             get
             {
-                return _loggingUser ??= new User();
+                return _loggingUser ??= new();
             }
             set
             {
@@ -163,7 +164,7 @@ namespace FMS.ViewModels.Main
         {
             if (_userStore.CurrentUser != null && param != null)
             {
-                _userStore.CurrentUser = new User();
+                _userStore.CurrentUser = new();
                 SetUserButton();
             }
         }

@@ -1,5 +1,4 @@
-﻿using FMS.Models.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.ViewModels.Common;
 
 namespace FMS.ViewModels.LiveForkliftsPages
@@ -69,38 +68,38 @@ namespace FMS.ViewModels.LiveForkliftsPages
                 while (_selectedForklift.Client.Connected)
                 {
                     ForkliftData tmp = new();
-                    if (_selectedForklift.Data.SafetyData != null && tmp.SafetyData != null)
+                    if (_selectedForklift.Data.MainSafetyData != null && tmp.MainSafetyData != null)
                     {
-                        tmp.SafetyData.CpuStatus = _selectedForklift.Data.SafetyData.CpuStatus;
-                        tmp.SafetyData.EncoderStatus = _selectedForklift.Data.SafetyData.EncoderStatus;
-                        tmp.SafetyData.Standstill = _selectedForklift.Data.SafetyData.Standstill;
-                        tmp.SafetyData.OverpseedGuardStatus = _selectedForklift.Data.SafetyData.OverpseedGuardStatus;
-                        tmp.SafetyData.LeftEmergencyStopButtonStatus = _selectedForklift.Data.SafetyData.LeftEmergencyStopButtonStatus;
-                        tmp.SafetyData.RightEmergencyStopButtonStatus = _selectedForklift.Data.SafetyData.RightEmergencyStopButtonStatus;
+                        tmp.MainSafetyData.CpuStatus = _selectedForklift.Data.MainSafetyData.CpuStatus;
+                        tmp.MainSafetyData.EncoderStatus = _selectedForklift.Data.MainSafetyData.EncoderStatus;
+                        tmp.MainSafetyData.SafetyStandstillStatus = _selectedForklift.Data.MainSafetyData.SafetyStandstillStatus;
+                        tmp.MainSafetyData.OverspeedGuardStatus = _selectedForklift.Data.MainSafetyData.OverspeedGuardStatus;
+                        tmp.MainSafetyData.LeftEmergencyStopButtonStatus = _selectedForklift.Data.MainSafetyData.LeftEmergencyStopButtonStatus;
+                        tmp.MainSafetyData.RightEmergencyStopButtonStatus = _selectedForklift.Data.MainSafetyData.RightEmergencyStopButtonStatus;
                     }
-                    if (_selectedForklift.Data.LeftSafetyScanner != null && tmp.LeftSafetyScanner != null)
+                    if (_selectedForklift.Data.LeftLidar != null && tmp.LeftLidar != null)
                     {
-                        tmp.LeftSafetyScanner.IsActive = _selectedForklift.Data.LeftSafetyScanner.IsActive;
-                        tmp.LeftSafetyScanner.EmergencyZoneStatus = _selectedForklift.Data.LeftSafetyScanner.EmergencyZoneStatus;
-                        tmp.LeftSafetyScanner.SoftStopZoneStatus = _selectedForklift.Data.LeftSafetyScanner.SoftStopZoneStatus;
-                        tmp.LeftSafetyScanner.ReducedSpeedZoneStatus = _selectedForklift.Data.LeftSafetyScanner.ReducedSpeedZoneStatus;
-                        tmp.LeftSafetyScanner.MonitoringCaseValid = _selectedForklift.Data.LeftSafetyScanner.IsActive;
-                        tmp.LeftSafetyScanner.ContaminationWarning = _selectedForklift.Data.LeftSafetyScanner.IsActive;
-                        tmp.LeftSafetyScanner.ContaminationError = _selectedForklift.Data.LeftSafetyScanner.IsActive;
-                        tmp.LeftSafetyScanner.AppError = _selectedForklift.Data.LeftSafetyScanner.IsActive;
-                        tmp.LeftSafetyScanner.DeviceError = _selectedForklift.Data.LeftSafetyScanner.IsActive;
+                        tmp.LeftLidar.IsActive = _selectedForklift.Data.LeftLidar.IsActive;
+                        tmp.LeftLidar.EmergencyStopZoneStatus = _selectedForklift.Data.LeftLidar.EmergencyStopZoneStatus;
+                        tmp.LeftLidar.SoftStopZoneStatus = _selectedForklift.Data.LeftLidar.SoftStopZoneStatus;
+                        tmp.LeftLidar.ReducedSpeedZoneStatus = _selectedForklift.Data.LeftLidar.ReducedSpeedZoneStatus;
+                        tmp.LeftLidar.MonitoringCaseValid = _selectedForklift.Data.LeftLidar.IsActive;
+                        tmp.LeftLidar.ContaminationWarning = _selectedForklift.Data.LeftLidar.IsActive;
+                        tmp.LeftLidar.ContaminationError = _selectedForklift.Data.LeftLidar.IsActive;
+                        tmp.LeftLidar.AppError = _selectedForklift.Data.LeftLidar.IsActive;
+                        tmp.LeftLidar.DeviceError = _selectedForklift.Data.LeftLidar.IsActive;
                     }
-                    if (_selectedForklift.Data.RightSafetyScanner != null && tmp.RightSafetyScanner != null)
+                    if (_selectedForklift.Data.RightLidar != null && tmp.RightLidar != null)
                     {
-                        tmp.RightSafetyScanner.IsActive = _selectedForklift.Data.RightSafetyScanner.IsActive;
-                        tmp.RightSafetyScanner.EmergencyZoneStatus = _selectedForklift.Data.RightSafetyScanner.EmergencyZoneStatus;
-                        tmp.RightSafetyScanner.SoftStopZoneStatus = _selectedForklift.Data.RightSafetyScanner.SoftStopZoneStatus;
-                        tmp.RightSafetyScanner.ReducedSpeedZoneStatus = _selectedForklift.Data.RightSafetyScanner.ReducedSpeedZoneStatus;
-                        tmp.RightSafetyScanner.MonitoringCaseValid = _selectedForklift.Data.RightSafetyScanner.IsActive;
-                        tmp.RightSafetyScanner.ContaminationWarning = _selectedForklift.Data.RightSafetyScanner.IsActive;
-                        tmp.RightSafetyScanner.ContaminationError = _selectedForklift.Data.RightSafetyScanner.IsActive;
-                        tmp.RightSafetyScanner.AppError = _selectedForklift.Data.RightSafetyScanner.IsActive;
-                        tmp.RightSafetyScanner.DeviceError = _selectedForklift.Data.RightSafetyScanner.IsActive;
+                        tmp.RightLidar.IsActive = _selectedForklift.Data.RightLidar.IsActive;
+                        tmp.RightLidar.EmergencyStopZoneStatus = _selectedForklift.Data.RightLidar.EmergencyStopZoneStatus;
+                        tmp.RightLidar.SoftStopZoneStatus = _selectedForklift.Data.RightLidar.SoftStopZoneStatus;
+                        tmp.RightLidar.ReducedSpeedZoneStatus = _selectedForklift.Data.RightLidar.ReducedSpeedZoneStatus;
+                        tmp.RightLidar.MonitoringCaseValid = _selectedForklift.Data.RightLidar.IsActive;
+                        tmp.RightLidar.ContaminationWarning = _selectedForklift.Data.RightLidar.IsActive;
+                        tmp.RightLidar.ContaminationError = _selectedForklift.Data.RightLidar.IsActive;
+                        tmp.RightLidar.AppError = _selectedForklift.Data.RightLidar.IsActive;
+                        tmp.RightLidar.DeviceError = _selectedForklift.Data.RightLidar.IsActive;
                     }
                     if (_selectedForklift.Data.LeftScangrid != null && tmp.LeftScangrid != null)
                     {
@@ -109,12 +108,12 @@ namespace FMS.ViewModels.LiveForkliftsPages
                         tmp.LeftScangrid.MonitoringCaseSwitchInputStatus = _selectedForklift.Data.LeftScangrid.MonitoringCaseSwitchInputStatus;
                         tmp.LeftScangrid.ProtectiveFieldStatus = _selectedForklift.Data.LeftScangrid.ProtectiveFieldStatus;
                         tmp.LeftScangrid.WarningFieldStatus = _selectedForklift.Data.LeftScangrid.WarningFieldStatus;
-                        tmp.LeftScangrid.SafetyOutput = _selectedForklift.Data.LeftScangrid.SafetyOutput;
+                        tmp.LeftScangrid.SafetyOutputStatus = _selectedForklift.Data.LeftScangrid.SafetyOutputStatus;
                         tmp.LeftScangrid.SleepModeStatus = _selectedForklift.Data.LeftScangrid.SleepModeStatus;
                         tmp.LeftScangrid.ContaminationWarning = _selectedForklift.Data.LeftScangrid.ContaminationWarning;
-                        tmp.LeftScangrid.ContaminationError = _selectedForklift.Data.LeftScangrid.ContaminationError; 
+                        tmp.LeftScangrid.ContaminationError = _selectedForklift.Data.LeftScangrid.ContaminationError;
                         tmp.LeftScangrid.ResistanceToExternalLightError = _selectedForklift.Data.LeftScangrid.ResistanceToExternalLightError;
-                        tmp.LeftScangrid.VoltageError = _selectedForklift.Data.LeftScangrid.VoltageError;   
+                        tmp.LeftScangrid.VoltageError = _selectedForklift.Data.LeftScangrid.VoltageError;
                     }
                     if (_selectedForklift.Data.RightScangrid != null && tmp.RightScangrid != null)
                     {
@@ -123,7 +122,7 @@ namespace FMS.ViewModels.LiveForkliftsPages
                         tmp.RightScangrid.MonitoringCaseSwitchInputStatus = _selectedForklift.Data.RightScangrid.MonitoringCaseSwitchInputStatus;
                         tmp.RightScangrid.ProtectiveFieldStatus = _selectedForklift.Data.RightScangrid.ProtectiveFieldStatus;
                         tmp.RightScangrid.WarningFieldStatus = _selectedForklift.Data.RightScangrid.WarningFieldStatus;
-                        tmp.RightScangrid.SafetyOutput = _selectedForklift.Data.RightScangrid.SafetyOutput;
+                        tmp.RightScangrid.SafetyOutputStatus = _selectedForklift.Data.RightScangrid.SafetyOutputStatus;
                         tmp.RightScangrid.SleepModeStatus = _selectedForklift.Data.RightScangrid.SleepModeStatus;
                         tmp.RightScangrid.ContaminationWarning = _selectedForklift.Data.RightScangrid.ContaminationWarning;
                         tmp.RightScangrid.ContaminationError = _selectedForklift.Data.RightScangrid.ContaminationError;

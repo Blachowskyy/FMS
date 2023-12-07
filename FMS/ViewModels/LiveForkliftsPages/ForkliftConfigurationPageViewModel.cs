@@ -2,7 +2,6 @@
 using FMS.Models.Main;
 using FMS.Services.Common.DataServices;
 using FMS.ViewModels.Common;
-using Microsoft.VisualBasic.Logging;
 using Serilog;
 using System.Windows.Input;
 
@@ -535,42 +534,47 @@ namespace FMS.ViewModels.LiveForkliftsPages
                 }
             }
         }
-        private void SaveUserData(TebConfigData tebConfig)
+        private void SendData()
         {
-            if (tebConfig != null)
+            if (SelectedForklift.Data.TebConfigSend != null)
             {
+
                 try
                 {
-                    tebConfig.ForwardMaxVelocity = Convert.ToString(MaxForwardSpeed);
-                    tebConfig.BackwardMaxVelocity = Convert.ToString(MaxBackwardSpeed);
-                    tebConfig.TurningMaxVelocity = Convert.ToString(MaxTurningSpeed);
-                    tebConfig.AccelerationLimitX = Convert.ToString(MaxLinearAcceleration);
-                    tebConfig.TurningAccelerationLimit = Convert.ToString(MaxAngulatAcceleration);
-                    tebConfig.TurningRadius = Convert.ToString(TurningRadius);
-                    tebConfig.WheelBase = Convert.ToString(WheelBase);
-                    tebConfig.GoalToleranceXY = Convert.ToString(MaxGoalToleranceXY);
-                    tebConfig.GoalToleranceYaw = Convert.ToString(MaxAngularGoalTolerance);
-                    tebConfig.MinimalObstacleDistance = Convert.ToString(MinObstacleDistance);
-                    tebConfig.StaticObstacleInflationRadius = Convert.ToString(StaticObstacleInflation);
-                    tebConfig.DynamicObstacleInflationRadius = Convert.ToString(DynamicObstacleInflation);
-                    tebConfig.DtRef = Convert.ToString(DtRef);
-                    tebConfig.DtHysteresis = Convert.ToString(DtHysteresis);
-                    tebConfig.IncludeCostmapObstacles = IncludeStaticObstacles;
-                    tebConfig.IncludeDynamicObstacles = IncludeDynamicObstacles;
-                    tebConfig.OscillationRecovery = AllowOsscilation;
-                    tebConfig.AllowInitializeWithBackwardMotion = AllowInitializeWithBackwardMove;
+
+                    SelectedForklift.Data.TebConfigSend.ForwardMaxVelocity = Convert.ToString(_maxForwardSpeed);
+                    SelectedForklift.Data.TebConfigSend.BackwardMaxVelocity = Convert.ToString(_maxBackwardSpeed);
+                    SelectedForklift.Data.TebConfigSend.TurningMaxVelocity = Convert.ToString(_maxTurningSpeed);
+                    SelectedForklift.Data.TebConfigSend.AccelerationLinearLimit = Convert.ToString(_maxLinearAcceleration);
+                    SelectedForklift.Data.TebConfigSend.AccelerationAngularLimit = Convert.ToString(_maxAngularAcceleration);
+                    SelectedForklift.Data.TebConfigSend.TurningRadius = Convert.ToString(_turningRadius);
+                    SelectedForklift.Data.TebConfigSend.Wheelbase = Convert.ToString(_wheelBase);
+                    SelectedForklift.Data.TebConfigSend.GoalToleranceXY = Convert.ToString(_maxGoalToleranceXY);
+                    SelectedForklift.Data.TebConfigSend.GoalToleranceYaw = Convert.ToString(_maxAngularGoalTolerance);
+                    SelectedForklift.Data.TebConfigSend.MinimalObstacleDistance = Convert.ToString(_minObstacleDistance);
+                    SelectedForklift.Data.TebConfigSend.StaticObstacleInflationRadius = Convert.ToString(_staticObstacleInflation);
+                    SelectedForklift.Data.TebConfigSend.DynamicObstacleInflationRadius = Convert.ToString(_dynamicObstacleInflation);
+                    SelectedForklift.Data.TebConfigSend.DtRef = Convert.ToString(_dtRef);
+                    SelectedForklift.Data.TebConfigSend.DtHysteresis = Convert.ToString(_dtHysteresis);
+                    SelectedForklift.Data.TebConfigSend.IncludeCostmapObstacles = _includeStaticObstacles;
+                    SelectedForklift.Data.TebConfigSend.IncludeDynamicObstacles = _includeDynamicObstacles;
+                    SelectedForklift.Data.TebConfigSend.OscillationRecovery = _allowOsscilation;
+                    SelectedForklift.Data.TebConfigSend.AllowInitializeWithBackwardMotion = _allowInitializeWithBackwardMove;
+                    SelectedForklift.Data.TebConfigSend.ForwardMaxVelocity = "10.0";
                 }
                 catch (Exception ex)
                 {
                     Serilog.Log.Error("Error while saving user data: " + ex.Message);
                 }
+
             }
+
         }
         #endregion
         #region Button logic
         private void LoadTebConfigFromForklift(object? param)
         {
-            if (_selectedForklift != null)
+            if (_selectedForklift.Data.ActualTebConfig != null)
             {
                 RefreshViewedData(_selectedForklift.Data.ActualTebConfig);
             }
@@ -579,16 +583,19 @@ namespace FMS.ViewModels.LiveForkliftsPages
         {
             if (_selectedForklift != null)
             {
-                
+
                 Forklift loadedForklift = await _forkliftDataService.Get(_selectedForklift.Id);
-                RefreshViewedData(loadedForklift.BackedUpTebConfig);
+                if (loadedForklift.BackedUpTebConfig != null)
+                {
+                    RefreshViewedData(loadedForklift.BackedUpTebConfig);
+                }
             }
         }
         private async void SaveTebConfigToDatabase(object? param)
         {
             if (_selectedForklift != null)
             {
-                SaveUserData(_selectedForklift.BackedUpTebConfig);
+
                 if (_forkliftDataService != null)
                 {
                     await _forkliftDataService.Update(_selectedForklift.Id, _selectedForklift);
@@ -599,24 +606,24 @@ namespace FMS.ViewModels.LiveForkliftsPages
         {
             if (_selectedForklift != null)
             {
-                SaveUserData(SelectedForklift.Data.TebConfig);
-                SelectedForklift.Data.TebConfig.SaveSettings = true;
-                int sendTime = DateTime.Now.Second;
-                while (!_selectedForklift.Data.ActualTebConfig.SaveSettings)
+                SendData();
+                SelectedForklift.Data.TebConfigSend.SaveSettings = true;
+                /*int sendTime = DateTime.Now.Second;*/
+                /*while (!_selectedForklift.Data.ActualTebConfig.SaveSettings)
                 {
-                    if ((sendTime - DateTime.Now.Second) > 10)
+                    if ((DateTime.Now.Second - sendTime) > 5)
                     {
                         SelectedForklift.Data.TebConfig.SaveSettings = false;
                         Serilog.Log.Error("Timeout error while sending teb config");
                         break;
                     }
-                    if (_selectedForklift.Data.ActualTebConfig.SaveSettings )
+                    if (_selectedForklift.Data.ActualTebConfig.SaveSettings)
                     {
                         SelectedForklift.Data.TebConfig.SaveSettings = false;
                         Serilog.Log.Information("Teb config sended successfully!");
                         break;
                     }
-                }
+                }*/
             }
         }
         #endregion

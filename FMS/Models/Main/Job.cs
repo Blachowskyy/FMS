@@ -1,103 +1,24 @@
-﻿namespace FMS.Models.Main
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace FMS.Models.Main
 {
-    public class Job : BaseModel
+    public class Job 
     {
-        #region Variables
-        private string? _name;
-        public string Name
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int PriorityLevel { get; set; }
+        public string? Name { get; set; }
+        public bool IsQueued { get; set; }
+        public bool IsRunning { get; set; }
+        public bool IsDone { get; set; }
+        public bool IsCanceled { get; set; }
+        public List<JobStep>? JobStepsList { get; set; }
+        public Job()
         {
-            get
-            {
-                return _name ?? string.Empty;
-            }
-            set
-            {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
+            Name = "";
+            JobStepsList = [];
         }
-        private int _priority;
-        public int Priority
-        {
-            get
-            {
-                return _priority;
-            }
-            set
-            {
-                _priority = value;
-                OnPropertyChanged(nameof(Priority));
-            }
-        }
-        private List<JobStep>? _jobStepList;
-        public List<JobStep> JobStepList
-        {
-            get
-            {
-                _jobStepList ??= [];
-                return _jobStepList;
-            }
-            set
-            {
-                _jobStepList = value;
-                OnPropertyChanged(nameof(JobStepList));
-            }
-        }
-        private bool _isQueued;
-        public bool IsQueued
-        {
-            get
-            {
-                return _isQueued;
-            }
-            set
-            {
-                _isQueued = value;
-                OnPropertyChanged(nameof(IsQueued));
-            }
-        }
-        private bool _isRunning;
-        public bool IsRunning
-        {
-            get
-            {
-                return _isRunning;
-            }
-            set
-            {
-                _isRunning = value;
-                OnPropertyChanged(nameof(IsRunning));
-            }
-        }
-        private bool _isCanceled;
-        public bool IsCanceled
-        {
-            get
-            {
-                return _isCanceled;
-            }
-            set
-            {
-                _isCanceled = value;
-                OnPropertyChanged(nameof(IsCanceled));
-            }
-        }
-        private bool _isCompleted;
-        public bool IsCompleted
-        {
-            get
-            {
-                return _isCompleted;
-            }
-            set
-            {
-                _isCompleted = value;
-                OnPropertyChanged(nameof(IsCompleted));
-            }
-        }
-        #endregion
-        #region Constructors
-        public Job() { }
-        #endregion
     }
 }

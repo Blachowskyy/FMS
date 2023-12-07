@@ -1,25 +1,11 @@
 ﻿namespace FMS.Models.Common
 {
-    public class ForkliftErrors : CommonBaseModel
+    public class ForkliftErrors
     {
-        #region Vaiables
-        private DeltaErrors? _delta;
-        public DeltaErrors Delta
+        public DeltaErrors? PlcErrors { get; set; }
+        public ForkliftErrors()
         {
-            get
-            {
-                _delta ??= new DeltaErrors();
-                return _delta;
-            }
-            set
-            {
-                _delta = value;
-                OnPropertyChanged(nameof(Delta));
-            }
+            PlcErrors = new();
         }
-        #endregion
-        #region Constructors
-        public ForkliftErrors() { }
-        #endregion
     }
 }

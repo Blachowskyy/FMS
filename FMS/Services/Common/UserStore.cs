@@ -10,9 +10,9 @@ namespace FMS.Services.Common
         {
             get
             {
-                _currentUser ??= new User();
-                return _currentUser;
+                return _currentUser ??= new();
             }
+
             set
             {
                 _currentUser = value;

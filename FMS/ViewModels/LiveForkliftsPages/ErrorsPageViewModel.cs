@@ -69,32 +69,32 @@ namespace FMS.ViewModels.LiveForkliftsPages
                 while (_selectedForklift.Client.Connected)
                 {
                     DeltaErrors tmp = new();
-                    if (_selectedForklift.Data.PlcErrors != null)
+                    if (_selectedForklift.Data.Errors.PlcErrors != null)
                     {
-                        tmp.ErrorStatus.BatteryRead = _selectedForklift.Data.PlcErrors.ErrorStatus.BatteryRead;
-                        tmp.ErrorStatus.ForksHeightSensor = _selectedForklift.Data.PlcErrors.ErrorStatus.ForksHeightSensor;
-                        tmp.ErrorStatus.PressureSensor = _selectedForklift.Data.PlcErrors.ErrorStatus.PressureSensor;
-                        tmp.ErrorStatus.TiltSensorAxis1 = _selectedForklift.Data.PlcErrors.ErrorStatus.TiltSensorAxis1;
-                        tmp.ErrorStatus.TiltSensorAxis2 = _selectedForklift.Data.PlcErrors.ErrorStatus.TiltSensorAxis2;
-                        tmp.ErrorStatus.ManualHandleSpeedRegulator = _selectedForklift.Data.PlcErrors.ErrorStatus.ManualHandleSpeedRegulator;
-                        tmp.ErrorStatus.CurtisSpeedWriteError = _selectedForklift.Data.PlcErrors.ErrorStatus.CurtisSpeedWriteError;
-                        tmp.ErrorStatus.ScangridLeftError = _selectedForklift.Data.PlcErrors.ErrorStatus.ScangridLeftError;
-                        tmp.ErrorStatus.ScangridRightError = _selectedForklift.Data.PlcErrors.ErrorStatus.ScangridRightError;
-                        tmp.ErrorStatus.ServoHaltError = _selectedForklift.Data.PlcErrors.ErrorStatus.ServoHaltError;
-                        tmp.ErrorStatus.ServoMoveError = _selectedForklift.Data.PlcErrors.ErrorStatus.ServoMoveError;
-                        tmp.ErrorStatus.ServoPositionReadError = _selectedForklift.Data.PlcErrors.ErrorStatus.ServoPositionReadError;
-                        tmp.ErrorCodes.BatteryReadErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.BatteryReadErrorCode;
-                        tmp.ErrorCodes.ForksHeightErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ForksHeightErrorCode;
-                        tmp.ErrorCodes.TiltSensorAxis1ErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.TiltSensorAxis1ErrorCode;
-                        tmp.ErrorCodes.TiltSensorAxis2ErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.TiltSensorAxis2ErrorCode;
-                        tmp.ErrorCodes.ManualHandleSpeedRegulatorErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ManualHandleSpeedRegulatorErrorCode;
-                        tmp.ErrorCodes.CurtisSpeedWriteErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.CurtisSpeedWriteErrorCode;
-                        tmp.ErrorCodes.ScangridLeftErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ScangridLeftErrorCode;
-                        tmp.ErrorCodes.ScangridRightErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ScangridRightErrorCode;
-                        tmp.ErrorCodes.PressureSensorErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.PressureSensorErrorCode;
-                        tmp.ErrorCodes.ServoMoveErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ServoMoveErrorCode;
-                        tmp.ErrorCodes.ServoHaltErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ServoHaltErrorCode;
-                        tmp.ErrorCodes.ServoPositionReadErrorCode = _selectedForklift.Data.PlcErrors.ErrorCodes.ServoPositionReadErrorCode;
+                        tmp.Status.BatteryReadError = _selectedForklift.Data.Errors.PlcErrors.Status.BatteryReadError;
+                        tmp.Status.ForksHeightError = _selectedForklift.Data.Errors.PlcErrors.Status.ForksHeightError;
+                        tmp.Status.PressureSensorError = _selectedForklift.Data.Errors.PlcErrors.Status.PressureSensorError;
+                        tmp.Status.TiltSensorAxis1Error = _selectedForklift.Data.Errors.PlcErrors.Status.TiltSensorAxis1Error;
+                        tmp.Status.TiltSensorAxis2Error = _selectedForklift.Data.Errors.PlcErrors.Status.TiltSensorAxis2Error;
+                        tmp.Status.ManualHandleSpeedRegulatorError = _selectedForklift.Data.Errors.PlcErrors.Status.ManualHandleSpeedRegulatorError;
+                        tmp.Status.CurtisSpeedWriteError = _selectedForklift.Data.Errors.PlcErrors.Status.CurtisSpeedWriteError;
+                        tmp.Status.ScangridLeftError = _selectedForklift.Data.Errors.PlcErrors.Status.ScangridLeftError;
+                        tmp.Status.ScangridRightError = _selectedForklift.Data.Errors.PlcErrors.Status.ScangridRightError;
+                        tmp.Status.ServoHaltError = _selectedForklift.Data.Errors.PlcErrors.Status.ServoHaltError;
+                        tmp.Status.ServoMoveError = _selectedForklift.Data.Errors.PlcErrors.Status.ServoMoveError;
+                        tmp.Status.ServoPositionReadError = _selectedForklift.Data.Errors.PlcErrors.Status.ServoPositionReadError;
+                        tmp.ErrorCodes.BatteryReadErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.BatteryReadErrorCode;
+                        tmp.ErrorCodes.ForksHeightErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ForksHeightErrorCode;
+                        tmp.ErrorCodes.TiltSensorAxis1ErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.TiltSensorAxis1ErrorCode;
+                        tmp.ErrorCodes.TiltSensorAxis2ErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.TiltSensorAxis2ErrorCode;
+                        tmp.ErrorCodes.ManualHandleSpeedRegulatorErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ManualHandleSpeedRegulatorErrorCode;
+                        tmp.ErrorCodes.CurtisSpeedWriteErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.CurtisSpeedWriteErrorCode;
+                        tmp.ErrorCodes.ScangridLeftErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ScangridLeftErrorCode;
+                        tmp.ErrorCodes.ScangridRightErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ScangridRightErrorCode;
+                        tmp.ErrorCodes.PressureSensorErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.PressureSensorErrorCode;
+                        tmp.ErrorCodes.ServoMoveErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ServoMoveErrorCode;
+                        tmp.ErrorCodes.ServoHaltErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ServoHaltErrorCode;
+                        tmp.ErrorCodes.ServoPositionReadErrorCode = _selectedForklift.Data.Errors.PlcErrors.ErrorCodes.ServoPositionReadErrorCode;
                     }
                     DisplayedData = tmp;
                     await Task.Delay(100);

@@ -20,12 +20,12 @@ namespace FMS.ViewModels.LiveForkliftsPages
                 OnPropertyChanged(nameof(Data));
             }
         }
-        private string? _refreshDate;
-        public string RefreshDate
+        private DateTime _refreshDate;
+        public DateTime RefreshDate
         {
             get
             {
-                return _refreshDate ??= string.Empty;
+                return _refreshDate;
             }
             set
             {
@@ -80,16 +80,16 @@ namespace FMS.ViewModels.LiveForkliftsPages
                         TiltAxis2 = _selectedForklift.Data.LiveParameters.TiltAxis2,
                         ActualForksHeight = _selectedForklift.Data.LiveParameters.ActualForksHeight,
                         ForksHeightLimiter = _selectedForklift.Data.LiveParameters.ForksHeightLimiter,
-                        LiveWeight = _selectedForklift.Data.LiveParameters.LiveWeight,
-                        SavedCargoWeight = _selectedForklift.Data.LiveParameters.SavedCargoWeight,
-                        OverallDistanceMiliMeters = _selectedForklift.Data.LiveParameters.OverallDistanceMiliMeters,
+                        WeightOnForks = _selectedForklift.Data.LiveParameters.WeightOnForks,
+                        CargoWeight = _selectedForklift.Data.LiveParameters.CargoWeight,
+                        OverallDistanceMilimeters = _selectedForklift.Data.LiveParameters.OverallDistanceMilimeters,
                         OverallDistanceMeters = _selectedForklift.Data.LiveParameters.OverallDistanceMeters,
-                        OverallDistanceKiloMeters = _selectedForklift.Data.LiveParameters.OverallDistanceKiloMeters,
-                        CurrentPWM = _selectedForklift.Data.LiveParameters.CurrentPWM,
+                        OverallDistanceKilometers = _selectedForklift.Data.LiveParameters.OverallDistanceKilometers,
+                        Pwm = _selectedForklift.Data.LiveParameters.Pwm,
                         ServoAngle = _selectedForklift.Data.LiveParameters.ServoAngle,
                         Speed = _selectedForklift.Data.LiveParameters.Speed
                     };
-                    RefreshDate = _selectedForklift.Data.LastDataUpdate;
+                    RefreshDate = _selectedForklift.Data.LastDataRefresh;
                     Data = tmp;
                     await Task.Delay(100);
                 }

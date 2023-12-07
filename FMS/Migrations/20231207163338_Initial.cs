@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FMS.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial1 : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,11 +17,12 @@ namespace FMS.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    IpAdress = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Port = table.Column<int>(type: "INTEGER", nullable: false),
-                    LidarLocAddress = table.Column<string>(type: "TEXT", nullable: false),
-                    RegistrstationDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                    ForkliftAddress = table.Column<string>(type: "TEXT", nullable: false),
+                    LidarLocAddress = table.Column<string>(type: "TEXT", nullable: true),
+                    VisionaryAddress = table.Column<string>(type: "TEXT", nullable: true),
+                    RegistrationDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,12 +35,12 @@ namespace FMS.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Priority = table.Column<int>(type: "INTEGER", nullable: false),
+                    PriorityLevel = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     IsQueued = table.Column<bool>(type: "INTEGER", nullable: false),
                     IsRunning = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsCanceled = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false)
+                    IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsCanceled = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,7 +54,7 @@ namespace FMS.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Type = table.Column<int>(type: "INTEGER", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: true)
+                    Description = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,8 +67,8 @@ namespace FMS.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     LocationType = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     PositionX = table.Column<string>(type: "TEXT", nullable: false),
                     PositionY = table.Column<string>(type: "TEXT", nullable: false),
                     PositionR = table.Column<string>(type: "TEXT", nullable: false),
@@ -86,15 +87,54 @@ namespace FMS.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
-                    Tag = table.Column<string>(type: "TEXT", nullable: false),
-                    IsLogged = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Client = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Installator = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Admin = table.Column<bool>(type: "INTEGER", nullable: false)
+                    NfcTag = table.Column<string>(type: "TEXT", nullable: true),
+                    IsClient = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsInstallator = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsSuperAdmin = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsLogged = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TebConfigDatas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ForkliftId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ForwardMaxVelocity = table.Column<string>(type: "TEXT", nullable: true),
+                    BackwardMaxVelocity = table.Column<string>(type: "TEXT", nullable: true),
+                    TurningMaxVelocity = table.Column<string>(type: "TEXT", nullable: true),
+                    AccelerationLinearLimit = table.Column<string>(type: "TEXT", nullable: true),
+                    AccelerationAngularLimit = table.Column<string>(type: "TEXT", nullable: true),
+                    TurningRadius = table.Column<string>(type: "TEXT", nullable: true),
+                    Wheelbase = table.Column<string>(type: "TEXT", nullable: true),
+                    GoalToleranceXY = table.Column<string>(type: "TEXT", nullable: true),
+                    GoalToleranceYaw = table.Column<string>(type: "TEXT", nullable: true),
+                    MinimalObstacleDistance = table.Column<string>(type: "TEXT", nullable: true),
+                    StaticObstacleInflationRadius = table.Column<string>(type: "TEXT", nullable: true),
+                    DynamicObstacleInflationRadius = table.Column<string>(type: "TEXT", nullable: true),
+                    DtRef = table.Column<string>(type: "TEXT", nullable: true),
+                    DtHysteresis = table.Column<string>(type: "TEXT", nullable: true),
+                    IncludeDynamicObstacles = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IncludeCostmapObstacles = table.Column<bool>(type: "INTEGER", nullable: false),
+                    OscillationRecovery = table.Column<bool>(type: "INTEGER", nullable: false),
+                    AllowInitializeWithBackwardMotion = table.Column<bool>(type: "INTEGER", nullable: false),
+                    SaveSettings = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TebConfigDatas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TebConfigDatas_Forklifts_ForkliftId",
+                        column: x => x.ForkliftId,
+                        principalTable: "Forklifts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,21 +143,27 @@ namespace FMS.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    JobId = table.Column<int>(type: "INTEGER", nullable: false),
                     JobStepLocationId = table.Column<int>(type: "INTEGER", nullable: false),
+                    JobTypeId = table.Column<int>(type: "INTEGER", nullable: false),
                     IsRunning = table.Column<bool>(type: "INTEGER", nullable: false),
                     IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsCanceled = table.Column<bool>(type: "INTEGER", nullable: false)
+                    IsCanceled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    JobId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_JobSteps", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_JobSteps_JobStepTypes_JobTypeId",
+                        column: x => x.JobTypeId,
+                        principalTable: "JobStepTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_JobSteps_Jobs_JobId",
                         column: x => x.JobId,
                         principalTable: "Jobs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_JobSteps_Locations_JobStepLocationId",
                         column: x => x.JobStepLocationId,
@@ -135,28 +181,42 @@ namespace FMS.Migrations
                 name: "IX_JobSteps_JobStepLocationId",
                 table: "JobSteps",
                 column: "JobStepLocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_JobSteps_JobTypeId",
+                table: "JobSteps",
+                column: "JobTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TebConfigDatas_ForkliftId",
+                table: "TebConfigDatas",
+                column: "ForkliftId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Forklifts");
-
-            migrationBuilder.DropTable(
                 name: "JobSteps");
 
             migrationBuilder.DropTable(
-                name: "JobStepTypes");
+                name: "TebConfigDatas");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "JobStepTypes");
 
             migrationBuilder.DropTable(
                 name: "Jobs");
 
             migrationBuilder.DropTable(
                 name: "Locations");
+
+            migrationBuilder.DropTable(
+                name: "Forklifts");
         }
     }
 }

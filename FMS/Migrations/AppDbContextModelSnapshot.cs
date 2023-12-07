@@ -23,42 +23,37 @@ namespace FMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AccelerationLimitX")
-                        .IsRequired()
+                    b.Property<string>("AccelerationAngularLimit")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AccelerationLinearLimit")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("AllowInitializeWithBackwardMotion")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("BackwardMaxVelocity")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DtHysteresis")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DtRef")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DynamicObstacleInflationRadius")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ForkliftId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ForwardMaxVelocity")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("GoalToleranceXY")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("GoalToleranceYaw")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IncludeCostmapObstacles")
@@ -68,7 +63,6 @@ namespace FMS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MinimalObstacleDistance")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("OscillationRecovery")
@@ -78,23 +72,15 @@ namespace FMS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("StaticObstacleInflationRadius")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TurningAccelerationLimit")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TurningMaxVelocity")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TurningRadius")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("WheelBase")
-                        .IsRequired()
+                    b.Property<string>("Wheelbase")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -102,7 +88,7 @@ namespace FMS.Migrations
                     b.HasIndex("ForkliftId")
                         .IsUnique();
 
-                    b.ToTable("tebConfigDatas");
+                    b.ToTable("TebConfigDatas");
                 });
 
             modelBuilder.Entity("FMS.Models.Main.Forklift", b =>
@@ -111,12 +97,11 @@ namespace FMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IpAddress")
+                    b.Property<string>("ForkliftAddress")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LidarLocAddress")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -126,11 +111,10 @@ namespace FMS.Migrations
                     b.Property<int>("Port")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("RegistrstationDate")
+                    b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("VisionaryAddress")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -147,7 +131,7 @@ namespace FMS.Migrations
                     b.Property<bool>("IsCanceled")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsCompleted")
+                    b.Property<bool>("IsDone")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsQueued")
@@ -157,10 +141,9 @@ namespace FMS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Priority")
+                    b.Property<int>("PriorityLevel")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -183,7 +166,7 @@ namespace FMS.Migrations
                     b.Property<bool>("IsRunning")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("JobId")
+                    b.Property<int?>("JobId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("JobStepLocationId")
@@ -210,6 +193,7 @@ namespace FMS.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Type")
@@ -259,23 +243,25 @@ namespace FMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Admin")
+                    b.Property<bool>("IsAdmin")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Client")
+                    b.Property<bool>("IsClient")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Installator")
+                    b.Property<bool>("IsInstallator")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsLogged")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
+                    b.Property<bool>("IsSuperAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NfcTag")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Tag")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -290,22 +276,18 @@ namespace FMS.Migrations
 
             modelBuilder.Entity("FMS.Models.Common.TebConfigData", b =>
                 {
-                    b.HasOne("FMS.Models.Main.Forklift", "Forklift")
+                    b.HasOne("FMS.Models.Main.Forklift", null)
                         .WithOne("BackedUpTebConfig")
                         .HasForeignKey("FMS.Models.Common.TebConfigData", "ForkliftId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Forklift");
                 });
 
             modelBuilder.Entity("FMS.Models.Main.JobStep", b =>
                 {
                     b.HasOne("FMS.Models.Main.Job", null)
-                        .WithMany("JobStepList")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("JobStepsList")
+                        .HasForeignKey("JobId");
 
                     b.HasOne("FMS.Models.Main.Location", "JobStepLocation")
                         .WithMany()
@@ -326,13 +308,12 @@ namespace FMS.Migrations
 
             modelBuilder.Entity("FMS.Models.Main.Forklift", b =>
                 {
-                    b.Navigation("BackedUpTebConfig")
-                        .IsRequired();
+                    b.Navigation("BackedUpTebConfig");
                 });
 
             modelBuilder.Entity("FMS.Models.Main.Job", b =>
                 {
-                    b.Navigation("JobStepList");
+                    b.Navigation("JobStepsList");
                 });
 #pragma warning restore 612, 618
         }

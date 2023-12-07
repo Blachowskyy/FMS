@@ -1,14 +1,9 @@
-﻿using FMS.ViewModels.Common;
-using FMS.Models.Main;
+﻿using FMS.Models.Main;
 using FMS.Services.Common.DataServices;
+using FMS.ViewModels.Common;
 using Serilog;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using ServiceStack.Text;
 using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FMS.ViewModels.Main
@@ -106,7 +101,7 @@ namespace FMS.ViewModels.Main
             bool verify = true;
             if (_currentForklfit != null)
             {
-                if (_currentForklfit.IpAddress == null)
+                if (_currentForklfit.ForkliftAddress == null)
                 {
                     verify = false;
                     Log.Error("Forklift IP Adress is null");
@@ -162,8 +157,25 @@ namespace FMS.ViewModels.Main
             if (verify && _forkliftDataService != null && _currentForklfit != null)
             {
                 CurrentForklift.Id = 0;
+                CurrentForklift.BackedUpTebConfig = new()
+                {
+                    ForwardMaxVelocity = "0.0",
+                    BackwardMaxVelocity = "0.0",
+                    TurningMaxVelocity = "0.0",
+                    AccelerationLinearLimit = "0.0",
+                    AccelerationAngularLimit = "0.0",
+                    TurningRadius = "0.0",
+                    Wheelbase = "0.0",
+                    GoalToleranceXY = "0.0",
+                    GoalToleranceYaw = "0.0",
+                    MinimalObstacleDistance = "0.0",
+                    StaticObstacleInflationRadius = "0.0",
+                    DynamicObstacleInflationRadius = "0.0",
+                    DtRef = "0.0",
+                    DtHysteresis = "0.0"
+                };
                 await _forkliftDataService.Create(_currentForklfit);
-                
+
             }
             LoadSavedForklifts();
         }
@@ -175,7 +187,7 @@ namespace FMS.ViewModels.Main
                 LoadSavedForklifts();
                 if (_savedForklifts != null)
                 {
-                    foreach(Forklift forklift in _savedForklifts)
+                    foreach (Forklift forklift in _savedForklifts)
                     {
                         if (forklift.Id == _currentForklfit.Id)
                         {
@@ -210,7 +222,7 @@ namespace FMS.ViewModels.Main
                 }
                 if (verify)
                 {
-                   result =  await _forkliftDataService.Delete(_currentForklfit.Id);
+                    result = await _forkliftDataService.Delete(_currentForklfit.Id);
                 }
             }
             if (result)
@@ -235,7 +247,7 @@ namespace FMS.ViewModels.Main
                     {
                         foreach (Forklift fork in _onlineForklifts)
                         {
-                            if (fork.Id == _currentForklfit.Id) 
+                            if (fork.Id == _currentForklfit.Id)
                             {
                                 CurrentForklift.IsConnected = true;
                             }
@@ -251,18 +263,18 @@ namespace FMS.ViewModels.Main
             catch (Exception ex)
             {
                 Log.Fatal(ex.ToString());
-            }  
+            }
         }
         private void PingForklift()
         {
             if (_currentForklfit != null)
             {
-                if (!string.IsNullOrEmpty(_currentForklfit.IpAddress))
+                if (!string.IsNullOrEmpty(_currentForklfit.ForkliftAddress))
                 {
                     Ping pingSender = new();
                     try
                     {
-                        PingReply reply = pingSender.Send(_currentForklfit.IpAddress);
+                        PingReply reply = pingSender.Send(_currentForklfit.ForkliftAddress);
                         if (reply.Status == IPStatus.Success)
                         {
                             Log.Information("Ping successfull: " + reply.RoundtripTime.ToString());
@@ -279,7 +291,7 @@ namespace FMS.ViewModels.Main
                 }
                 else
                 {
-                    Log.Warning("Something wrong with Ip address: " + _currentForklfit.IpAddress.ToString());
+                    Log.Warning("Something wrong with Ip address: " + _currentForklfit.ForkliftAddress.ToString());
                 }
             }
             else
@@ -292,7 +304,7 @@ namespace FMS.ViewModels.Main
         public ICommand? AddForkliftButtonClick { get; private set; }
         public ICommand? UpdateForkliftButtonClick { get; private set; }
         public ICommand? DeleteForkliftButtonClick { get; private set; }
-        public ICommand? SelectForklfitFromList {  get; private set; }
+        public ICommand? SelectForklfitFromList { get; private set; }
         public ICommand? PingForkliftButtonCLick { get; private set; }
 
         #endregion

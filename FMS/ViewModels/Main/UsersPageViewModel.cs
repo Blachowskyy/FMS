@@ -15,7 +15,7 @@ namespace FMS.ViewModels.Main
         {
             get
             {
-                return _editededUser ?? new();
+                return _editededUser ??= new();
             }
             set
             {
@@ -117,17 +117,17 @@ namespace FMS.ViewModels.Main
             if (_userStore != null && checkedUser != null && _userDataService != null)
             {
                 
-                if (_userStore.CurrentUser.Client)
+                if (_userStore.CurrentUser.IsClient)
                 {
-                    if (checkedUser.Installator || checkedUser.Admin)
+                    if (checkedUser.IsInstallator || checkedUser.IsAdmin)
                     {
                         result = false;
                         Log.Information("Current user has not sufficient privileges");
                     }
                 }
-                if (_userStore.CurrentUser.Installator)
+                if (_userStore.CurrentUser.IsInstallator)
                 {
-                    if (checkedUser.Admin)
+                    if (checkedUser.IsAdmin)
                     {
                         result = false;
                         Log.Information("Current user has not sufficient privileges");
@@ -158,10 +158,6 @@ namespace FMS.ViewModels.Main
                         bool privilegesCheck = CheckPrivileges(addedUser);
                         if (privilegesCheck)
                         {
-                            if (addedUser.Tag == null || addedUser.Tag == "")
-                            {
-                                addedUser.Tag = "NO TAG";
-                            }
                             await _userDataService.Create(addedUser);
                         }
                     }

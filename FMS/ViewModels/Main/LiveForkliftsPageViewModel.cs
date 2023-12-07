@@ -31,7 +31,7 @@ namespace FMS.ViewModels.Main
         {
             get
             {
-                _selectedForklift ??= new Forklift { Name = "Wybierz wózek..." };
+                _selectedForklift ??= new();
                 return _selectedForklift;
             }
             set

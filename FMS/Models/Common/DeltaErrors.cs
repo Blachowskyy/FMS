@@ -2,40 +2,14 @@
 
 namespace FMS.Models.Common
 {
-    public class DeltaErrors : CommonBaseModel
+    public class DeltaErrors
     {
-        #region Variables
-        private DeltaErrorCodes? _errorCodes;
-        public DeltaErrorCodes ErrorCodes
+        public DeltaStatus? Status { get; set; }
+        public DeltaErrorCodes? ErrorCodes { get; set; }
+        public DeltaErrors()
         {
-            get
-            {
-                _errorCodes ??= new DeltaErrorCodes();
-                return _errorCodes;
-            }
-            set
-            {
-                _errorCodes = value;
-                OnPropertyChanged(nameof(ErrorCodes));
-            }
+            ErrorCodes = new DeltaErrorCodes();
+            Status = new DeltaStatus();
         }
-        private DeltaStatus? _errorStatus;
-        public DeltaStatus ErrorStatus
-        {
-            get
-            {
-                _errorStatus ??= new DeltaStatus();
-                return _errorStatus;
-            }
-            set
-            {
-                _errorStatus = value;
-                OnPropertyChanged(nameof(ErrorCodes));
-            }
-        }
-        #endregion
-        #region Constructors
-        public DeltaErrors() { }
-        #endregion
     }
 }
