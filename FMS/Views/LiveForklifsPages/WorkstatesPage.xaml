@@ -4,10 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:conv="clr-namespace:FMS.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lfp="clr-namespace:FMS.ViewModels.LiveForkliftsPages"
     xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="WorkstatesPage"
+    d:DataContext="{d:DesignInstance Type=lfp:WorkstatesPageViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">

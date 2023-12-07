@@ -52,17 +52,17 @@
                         </StackPanel>
                         <StackPanel Margin="15,0,0,0">
                             <Separator Height="5" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.CpuStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.CpuStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.EncoderStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.EncoderStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.Standstill, Converter={StaticResource BoolGreenGrey}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.SafetyStandstillStatus, Converter={StaticResource BoolGreenGrey}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.OverpseedGuardStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.OverspeedGuardStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.LeftEmergencyStopButtonStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.LeftEmergencyStopButtonStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.SafetyData.RightEmergencyStopButtonStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.MainSafetyData.RightEmergencyStopButtonStatus, Converter={StaticResource BoolGreenRed}}" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -108,23 +108,23 @@
                         </StackPanel>
                         <StackPanel Margin="15,0,0,0">
                             <Separator Height="5" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.IsActive, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.IsActive, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.EmergencyZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.MonitoringCaseValid, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.MonitoringCaseValid, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.AppError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.AppError, Converter={StaticResource BoolGreyRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftSafetyScanner.DeviceError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftLidar.DeviceError, Converter={StaticResource BoolGreyRed}}" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -170,23 +170,23 @@
                         </StackPanel>
                         <StackPanel Margin="15,0,0,0">
                             <Separator Height="5" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.IsActive, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.IsActive, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.EmergencyZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.EmergencyStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.SoftStopZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.ReducedSpeedZoneStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.MonitoringCaseValid, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.MonitoringCaseValid, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.ContaminationWarning, Converter={StaticResource BoolGreyYellow}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.ContaminationError, Converter={StaticResource BoolGreyRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.AppError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.AppError, Converter={StaticResource BoolGreyRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightSafetyScanner.DeviceError, Converter={StaticResource BoolGreyRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightLidar.DeviceError, Converter={StaticResource BoolGreyRed}}" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -248,7 +248,7 @@
                             <Separator Height="10" />
                             <Image Height="30" Source="{Binding Dataset.LeftScangrid.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.LeftScangrid.SafetyOutput, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.LeftScangrid.SafetyOutputStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
                             <Image Height="30" Source="{Binding Dataset.LeftScangrid.SleepModeStatus, Converter={StaticResource BoolGreyYellow}}" />
                             <Separator Height="10" />
@@ -320,7 +320,7 @@
                             <Separator Height="10" />
                             <Image Height="30" Source="{Binding Dataset.RightScangrid.WarningFieldStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
-                            <Image Height="30" Source="{Binding Dataset.RightScangrid.SafetyOutput, Converter={StaticResource BoolGreenRed}}" />
+                            <Image Height="30" Source="{Binding Dataset.RightScangrid.SafetyOutputStatus, Converter={StaticResource BoolGreenRed}}" />
                             <Separator Height="10" />
                             <Image Height="30" Source="{Binding Dataset.RightScangrid.SleepModeStatus, Converter={StaticResource BoolGreyYellow}}" />
                             <Separator Height="10" />

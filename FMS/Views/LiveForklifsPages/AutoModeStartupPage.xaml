@@ -101,13 +101,13 @@
                 <Separator Height="5" />
                 <Image Height="30" Source="{Binding DiplayedData.Plc, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DiplayedData.FlexiGatewayEthernet, Converter={StaticResource BoolGreenRed}}" />
+                <Image Height="30" Source="{Binding DiplayedData.FlexiEthernetGateway, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DiplayedData.FlexiGatewayModbus, Converter={StaticResource BoolGreenRed}}" />
+                <Image Height="30" Source="{Binding DiplayedData.FlexiModbusGateway, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DiplayedData.SafetyScannerLeft, Converter={StaticResource BoolGreenRed}}" />
+                <Image Height="30" Source="{Binding DiplayedData.LeftLidar, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DiplayedData.SafetyScannerRight, Converter={StaticResource BoolGreenRed}}" />
+                <Image Height="30" Source="{Binding DiplayedData.RightLidar, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />
                 <Image Height="30" Source="{Binding DiplayedData.GatewayEnd, Converter={StaticResource BoolGreenRed}}" />
                 <Separator Height="5" />

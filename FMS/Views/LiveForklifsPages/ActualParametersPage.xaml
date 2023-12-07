@@ -3,9 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lfp="clr-namespace:FMS.ViewModels.LiveForkliftsPages"
     xmlns:local="clr-namespace:FMS.Views.LiveForklifsPages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ActualParametersPage"
+    d:DataContext="{d:DesignInstance Type=lfp:ActualParametersPageViewModel}"
     d:DesignHeight="900"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -206,12 +208,12 @@
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding Data.LiveWeight}" />
+                        Text="{Binding Data.WeightOnForks}" />
                     <Separator Height="4" Margin="0,2,0,0" />
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding Data.SavedCargoWeight}" />
+                        Text="{Binding Data.CargoWeight}" />
                     <Separator Height="4" Margin="0,2,0,0" />
                     <TextBlock
                         FontSize="20"
@@ -226,7 +228,7 @@
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding Data.OverallDistanceMiliMeters}" />
+                        Text="{Binding Data.OverallDistanceMilimeters}" />
                     <Separator Height="4" Margin="0,2,0,0" />
                     <TextBlock
                         FontSize="20"
@@ -236,7 +238,7 @@
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding Data.OverallDistanceKiloMeters}" />
+                        Text="{Binding Data.OverallDistanceKilometers}" />
                     <Separator Height="4" Margin="0,2,0,0" />
                     <TextBlock
                         FontSize="20"
@@ -246,7 +248,7 @@
                     <TextBlock
                         FontSize="20"
                         Foreground="White"
-                        Text="{Binding Data.CurrentPWM}" />
+                        Text="{Binding Data.Pwm}" />
                     <Separator Height="4" Margin="0,2,0,0" />
                     <TextBlock
                         FontSize="20"

@@ -126,7 +126,7 @@
                             MinWidth="200"
                             VerticalAlignment="Center"
                             FontSize="24"
-                            Text="{Binding CurrentForklift.IpAddress}"
+                            Text="{Binding CurrentForklift.ForkliftAddress}"
                             TextAlignment="Center" />
                         <Separator Height="15" Margin="0,-5,0,0" />
                         <TextBox

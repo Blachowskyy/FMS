@@ -85,29 +85,29 @@
                 <Separator Height="8.3" />
             </StackPanel>
             <StackPanel Margin="15,0,0,0">
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.BatteryRead, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.BatteryReadError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.PressureSensor, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.PressureSensorError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ForksHeightSensor, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ForksHeightError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.TiltSensorAxis1Error, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.TiltSensorAxis2Error, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ManualHandleSpeedRegulator, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ManualHandleSpeedRegulatorError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.CurtisSpeedWriteError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.CurtisSpeedWriteError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ScangridLeftError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ScangridLeftError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ScangridRightError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ScangridRightError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoHaltError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ServoHaltError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoMoveError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ServoMoveError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
-                <Image Height="30" Source="{Binding DisplayedData.ErrorStatus.ServoPositionReadError, Converter={StaticResource BoolGreyRed}}" />
+                <Image Height="30" Source="{Binding DisplayedData.Status.ServoPositionReadError, Converter={StaticResource BoolGreyRed}}" />
                 <Separator Height="5" />
             </StackPanel>
             <StackPanel Width="100" Margin="15,0,0,0">
@@ -115,73 +115,73 @@
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.BatteryReadErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.BatteryRead, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.BatteryReadError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.PressureSensorErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.PressureSensor, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.PressureSensorError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ForksHeightErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ForksHeightSensor, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ForksHeightError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.TiltSensorAxis1ErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.TiltSensorAxis1, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.TiltSensorAxis1Error, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.TiltSensorAxis2ErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.TiltSensorAxis2, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.TiltSensorAxis2Error, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ManualHandleSpeedRegulatorErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ManualHandleSpeedRegulator, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ManualHandleSpeedRegulatorError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.CurtisSpeedWriteErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.CurtisSpeedWriteError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.CurtisSpeedWriteError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ScangridLeftErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ScangridLeftError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ScangridLeftError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ScangridRightErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ScangridRightError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ScangridRightError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ServoHaltErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ServoHaltError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ServoHaltError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ServoMoveErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ServoMoveError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ServoMoveError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
                 <TextBlock
                     FontSize="20"
                     Foreground="Red"
                     Text="{Binding DisplayedData.ErrorCodes.ServoPositionReadErrorCode}"
-                    Visibility="{Binding DisplayedData.ErrorStatus.ServoPositionReadError, Converter={StaticResource BoolToVisibility}}" />
+                    Visibility="{Binding DisplayedData.Status.ServoPositionReadError, Converter={StaticResource BoolToVisibility}}" />
                 <Separator Height="8.3" />
             </StackPanel>
         </StackPanel>

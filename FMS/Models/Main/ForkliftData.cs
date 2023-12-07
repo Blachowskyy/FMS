@@ -38,6 +38,10 @@ namespace FMS.Models.Main
             ActualTask = new();
             TaskSend = new();
             TebConfigSend = new();
+            ActiveWorkstates = new();
+            Startup = new();
+            OrdersConfirmations = new();
+            OrdersSend = new();
         }
     }
 }

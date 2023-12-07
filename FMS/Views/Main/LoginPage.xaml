@@ -5,11 +5,14 @@
     xmlns:conv="clr-namespace:FMS.ViewModels.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FMS.Views.Main"
+    xmlns:main="[main ]clr-namespace:FMS.ViewModels.Main"
+    xmlns:main1="clr-namespace:FMS.ViewModels.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="LoginPage"
     Width="auto"
     Height="900"
+    d:DataContext="{d:DesignInstance Type=main1:LoginPageViewModel}"
     mc:Ignorable="d">
     <Page.Resources>
         <conv:BoolToVIsibilityConverter x:Key="BoolToVisibilityConverter" />
