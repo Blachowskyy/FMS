@@ -23,7 +23,8 @@ namespace FMS.Services.HostBuilders
                 services.AddTransient<SafetyDataPageViewModel>();
                 services.AddTransient<ForkliftConfigurationPageViewModel>();
                 services.AddTransient<SafetyDataPageViewModel>();
-            });
+/*                services.AddTransient<LocationsManagementPageViewModel>();
+*/            });
             return hostBuilder;
         }
     }

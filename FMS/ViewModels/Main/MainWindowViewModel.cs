@@ -4,6 +4,7 @@ using FMS.Services.Common;
 using FMS.Services.Common.DataServices;
 using FMS.Services.Common.Interfaces;
 using FMS.ViewModels.Common;
+using FMS.Views.LiveForklifsPages;
 using FMS.Views.Main;
 using Serilog;
 using System.Windows;
@@ -139,7 +140,7 @@ namespace FMS.ViewModels.Main
         private readonly IDataService<JobStepType> _jobStepTypeDataService;
         private readonly IDataService<JobStep> _jobStepDataService;
         private readonly IDataService<Job> _jobDataService;
-        private readonly IDataService<Location> _locationDataService;
+        private readonly LocationDataService _locationDataService;
         private readonly ForklfitDataService _forkliftDataService;
         private readonly ForkliftConnection _forkliftConnectionService;
         private readonly UserStore _userStore;
@@ -152,7 +153,6 @@ namespace FMS.ViewModels.Main
         IDataService<JobStepType> jobStepTypeDataService,
         IDataService<JobStep> jobStepDataService,
         IDataService<Job> jobDataService,
-        IDataService<Location> locationDataService,
         ForklfitDataService forkliftDataService,
         UserStore userStore,
         ForkliftConnection forkliftConnectionService)
@@ -167,7 +167,7 @@ namespace FMS.ViewModels.Main
             _jobStepTypeDataService = jobStepTypeDataService;
             _jobStepDataService = jobStepDataService;
             _jobDataService = jobDataService;
-            _locationDataService = locationDataService;
+          /*  _locationDataService = locationDataService;*/
             _forkliftDataService = forkliftDataService;
             _userStore = userStore;
             _forkliftConnectionService = forkliftConnectionService;
@@ -304,6 +304,12 @@ namespace FMS.ViewModels.Main
             _connectedForklifts ??= [];
             CurrentPage = new LiveForklfitsPage(new LiveForkliftsPageViewModel(_userStore, _connectedForklifts, _forkliftDataService));
         }
+        private void ExecuteLocationsManagementPageButtonClick(object? param)
+        {
+            Log.Information("Clicked locations management page button...");
+            _connectedForklifts ??= [];
+/*            CurrentPage = new LocationsManagementPage(new LocationsManagementPageViewModel(_locationDataService, _connectedForklifts));
+*/        }
         #endregion
         #region ICommand declarations
         public ICommand? ShutdownAppButtonClick { get; private set; }
@@ -311,6 +317,7 @@ namespace FMS.ViewModels.Main
         public ICommand? ForkliftManagementPageButtonClick { get; private set; }
         public ICommand? UsersPageButtonClick { get; private set; }
         public ICommand? LiveDataPageButtonClick { get; private set; }
+        public ICommand? LocationsManagementButtonClick { get; private set; }
         #endregion
     }
 }

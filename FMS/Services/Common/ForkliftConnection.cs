@@ -453,6 +453,8 @@ namespace FMS.Services.Common
                             }
                             if (forkliftActualTebConfigData.Count == 19)
                             {
+                                double angle = Convert.ToDouble(forkliftActualTebConfigData[8]);
+                                double radians = (Math.PI / 180) * angle;
                                 fork.Data.ActualTebConfig.Wheelbase = forkliftActualTebConfigData[0];
                                 fork.Data.ActualTebConfig.TurningRadius = forkliftActualTebConfigData[1];
                                 fork.Data.ActualTebConfig.ForwardMaxVelocity = forkliftActualTebConfigData[2];
@@ -461,7 +463,7 @@ namespace FMS.Services.Common
                                 fork.Data.ActualTebConfig.AccelerationLinearLimit = forkliftActualTebConfigData[5];
                                 fork.Data.ActualTebConfig.AccelerationAngularLimit = forkliftActualTebConfigData[6];
                                 fork.Data.ActualTebConfig.GoalToleranceXY = forkliftActualTebConfigData[7];
-                                fork.Data.ActualTebConfig.GoalToleranceYaw = forkliftActualTebConfigData[8];
+                                fork.Data.ActualTebConfig.GoalToleranceYaw = Convert.ToString(radians);
                                 fork.Data.ActualTebConfig.AllowInitializeWithBackwardMotion = Convert.ToBoolean(forkliftActualTebConfigData[9]);
                                 fork.Data.ActualTebConfig.MinimalObstacleDistance = forkliftActualTebConfigData[10];
                                 fork.Data.ActualTebConfig.StaticObstacleInflationRadius = forkliftActualTebConfigData[11];

@@ -38,6 +38,8 @@ namespace FMS.Services.HostBuilders
                 new SafetyDataPage(s.GetRequiredService<SafetyDataPageViewModel>()));
                 services.AddSingleton<WorkstatesPage>(s =>
                 new WorkstatesPage(s.GetRequiredService<WorkstatesPageViewModel>()));
+                /*services.AddSingleton<LocationsManagementPage>(s =>
+                new LocationsManagementPage(s.GetRequiredService<LocationsManagementPageViewModel>()));*/
             });
             return hostBuilder;
         }
