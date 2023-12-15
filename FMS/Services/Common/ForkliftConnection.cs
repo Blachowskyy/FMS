@@ -625,7 +625,7 @@ namespace FMS.Services.Common
                         #endregion
                         #endregion
                     }
-                    await Reconnect(fork);
+                    
                 }
                 catch (Exception ex)
                 {
